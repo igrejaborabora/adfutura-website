@@ -1,7 +1,8 @@
 import { getDictionary } from "@/lib/dictionary";
 
-export default async function ServicesPage({ params }: { params: { lang: string } }) {
-    const dict = await getDictionary(params.lang as any);
+export default async function ServicesPage({ params }: { params: Promise<{ lang: string }> }) {
+    const { lang } = await params;
+    const dict = await getDictionary(lang as any);
     const { services } = dict;
 
     return (
@@ -38,7 +39,7 @@ export default async function ServicesPage({ params }: { params: { lang: string 
                                     </li>
                                 ))}
                             </ul>
-                            <a href={`/${params.lang}/contact`} className="btn btn-primary">{services.advisory.cta}</a>
+                            <a href={`/${lang}/contact`} className="btn btn-primary">{services.advisory.cta}</a>
                         </div>
                         <div style={{ padding: '3rem', borderLeft: '1px solid var(--glass-border)', background: 'rgba(255,255,255,0.01)' }}>
                             <h4 style={{ marginBottom: '1.5rem', textTransform: 'uppercase', fontSize: '0.8rem', opacity: 0.6 }}>Includes</h4>
@@ -68,7 +69,7 @@ export default async function ServicesPage({ params }: { params: { lang: string 
                                 ))}
                             </ul>
                             <p style={{ fontSize: '1.1rem', marginBottom: '2.5rem', fontStyle: 'italic' }}>{services.platforms.outro}</p>
-                            <a href={`/${params.lang}/contact`} className="btn btn-outline">{services.platforms.cta}</a>
+                            <a href={`/${lang}/contact`} className="btn btn-outline">{services.platforms.cta}</a>
                         </div>
                         <div style={{ direction: 'ltr', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                             <div style={{ width: '100%', aspectRatio: '16/9', background: 'var(--glass-bg)', border: '1px solid var(--glass-border)', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-dim)' }}>
@@ -94,7 +95,7 @@ export default async function ServicesPage({ params }: { params: { lang: string 
                     </div>
                     <p style={{ fontSize: '1.5rem', fontWeight: '600', textAlign: 'center', margin: '4rem 0' }}>{services.innovation.outro}</p>
                     <div style={{ textAlign: 'center' }}>
-                        <a href={`/${params.lang}/contact`} className="btn btn-primary">{services.innovation.cta}</a>
+                        <a href={`/${lang}/contact`} className="btn btn-primary">{services.innovation.cta}</a>
                     </div>
                 </div>
             </section>
@@ -115,7 +116,7 @@ export default async function ServicesPage({ params }: { params: { lang: string 
                             ))}
                         </div>
                         <p style={{ fontSize: '1.25rem', color: 'var(--accent-cyan)', marginBottom: '3rem' }}>{services.transformation.outro}</p>
-                        <a href={`/${params.lang}/contact`} className="btn btn-outline">{services.transformation.cta}</a>
+                        <a href={`/${lang}/contact`} className="btn btn-outline">{services.transformation.cta}</a>
                     </div>
                 </div>
             </section>

@@ -1,7 +1,8 @@
 import { getDictionary } from "@/lib/dictionary";
 
-export default async function HomePage({ params }: { params: { lang: string } }) {
-  const dict = await getDictionary(params.lang as any);
+export default async function HomePage({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang } = await params;
+  const dict = await getDictionary(lang as any);
   const { home } = dict;
 
   return (
@@ -16,8 +17,8 @@ export default async function HomePage({ params }: { params: { lang: string } })
             <p style={{ fontSize: '1.1rem', whiteSpace: 'pre-line' }}>{home.hero.description}</p>
           </div>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
-            <a href={`/${params.lang}/services`} className="btn btn-primary">{home.hero.cta_services}</a>
-            <a href={`/${params.lang}/work`} className="btn btn-outline">{home.hero.cta_work}</a>
+            <a href={`/${lang}/services`} className="btn btn-primary">{home.hero.cta_services}</a>
+            <a href={`/${lang}/work`} className="btn btn-outline">{home.hero.cta_work}</a>
           </div>
         </div>
       </section>
@@ -107,7 +108,7 @@ export default async function HomePage({ params }: { params: { lang: string } })
             ))}
           </div>
           <div style={{ textAlign: 'center' }}>
-            <a href={`/${params.lang}/insights`} className="btn btn-outline">{home.principles_preview.cta}</a>
+            <a href={`/${lang}/insights`} className="btn btn-outline">{home.principles_preview.cta}</a>
           </div>
         </div>
       </section>
@@ -141,7 +142,7 @@ export default async function HomePage({ params }: { params: { lang: string } })
               <div key={i} style={{ color: 'var(--accent-cyan)' }}>• {point}</div>
             ))}
           </div>
-          <a href={`/${params.lang}/contact`} className="btn btn-primary" style={{ padding: '1rem 3rem', fontSize: '1.1rem' }}>{home.invitation.cta}</a>
+          <a href={`/${lang}/contact`} className="btn btn-primary" style={{ padding: '1rem 3rem', fontSize: '1.1rem' }}>{home.invitation.cta}</a>
         </div>
       </section>
     </div>

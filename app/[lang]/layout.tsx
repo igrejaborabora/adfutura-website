@@ -12,27 +12,28 @@ export default async function RootLayout({
   params
 }: {
   children: React.ReactNode;
-  params: { lang: string };
+  params: Promise<{ lang: string }>;
 }) {
-  const dict = await getDictionary(params.lang as any);
+  const { lang } = await params;
+  const dict = await getDictionary(lang as any);
   const { nav, footer } = dict;
 
   return (
-    <html lang={params.lang}>
+    <html lang={lang}>
       <body>
         <nav className="navbar glass">
           <div className="container nav-content">
-            <a href={`/${params.lang}`} className="logo">adFutura</a>
+            <a href={`/${lang}`} className="logo">adFutura</a>
             <div className="nav-links">
-              <a href={`/${params.lang}/services`} className="nav-link">{nav.services}</a>
-              <a href={`/${params.lang}/work`} className="nav-link">{nav.work}</a>
-              <a href={`/${params.lang}/insights`} className="nav-link">{nav.insights}</a>
-              <a href={`/${params.lang}/contact`} className="nav-link">{nav.contact}</a>
+              <a href={`/${lang}/services`} className="nav-link">{nav.services}</a>
+              <a href={`/${lang}/work`} className="nav-link">{nav.work}</a>
+              <a href={`/${lang}/insights`} className="nav-link">{nav.insights}</a>
+              <a href={`/${lang}/contact`} className="nav-link">{nav.contact}</a>
             </div>
             <div className="lang-switcher">
-              <a href={params.lang === 'en' ? '/en' : '/en'} style={{ opacity: params.lang === 'en' ? 1 : 0.5 }}>EN</a>
+              <a href={lang === 'en' ? '/en' : '/en'} style={{ opacity: lang === 'en' ? 1 : 0.5 }}>EN</a>
               <span style={{ margin: '0 0.5rem', opacity: 0.3 }}>|</span>
-              <a href={params.lang === 'pt' ? '/pt' : '/pt'} style={{ opacity: params.lang === 'pt' ? 1 : 0.5 }}>PT</a>
+              <a href={lang === 'pt' ? '/pt' : '/pt'} style={{ opacity: lang === 'pt' ? 1 : 0.5 }}>PT</a>
             </div>
           </div>
         </nav>
@@ -47,10 +48,10 @@ export default async function RootLayout({
               <div>
                 <h4 style={{ color: 'var(--accent-cyan)', fontSize: '0.8rem', textTransform: 'uppercase' }}>Navigation</h4>
                 <div style={{ display: 'grid', gap: '0.75rem', marginTop: '1rem' }}>
-                  <a href={`/${params.lang}/services`}>{nav.services}</a>
-                  <a href={`/${params.lang}/work`}>{nav.work}</a>
-                  <a href={`/${params.lang}/insights`}>{nav.insights}</a>
-                  <a href={`/${params.lang}/contact`}>{nav.contact}</a>
+                  <a href={`/${lang}/services`}>{nav.services}</a>
+                  <a href={`/${lang}/work`}>{nav.work}</a>
+                  <a href={`/${lang}/insights`}>{nav.insights}</a>
+                  <a href={`/${lang}/contact`}>{nav.contact}</a>
                 </div>
               </div>
               <div>

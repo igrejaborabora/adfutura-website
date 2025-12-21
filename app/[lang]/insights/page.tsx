@@ -1,7 +1,8 @@
 import { getDictionary } from "@/lib/dictionary";
 
-export default async function InsightsPage({ params }: { params: { lang: string } }) {
-    const dict = await getDictionary(params.lang as any);
+export default async function InsightsPage({ params }: { params: Promise<{ lang: string }> }) {
+    const { lang } = await params;
+    const dict = await getDictionary(lang as any);
     const { insights } = dict;
 
     return (
@@ -12,7 +13,7 @@ export default async function InsightsPage({ params }: { params: { lang: string 
                     <h1 style={{ marginBottom: '4rem' }}>{insights.body}</h1>
 
                     <div style={{ display: 'grid', gap: '2rem' }}>
-                        <a href={`/${params.lang}/insights/principles`} className="glass" style={{ padding: '3rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', transition: 'var(--transition-smooth)' }}>
+                        <a href={`/${lang}/insights/principles`} className="glass" style={{ padding: '3rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', transition: 'var(--transition-smooth)' }}>
                             <div>
                                 <h3 style={{ marginBottom: '0.5rem' }}>{insights.list[0]}</h3>
                                 <p style={{ color: 'var(--text-dim)' }}>Core constraints that derive our work.</p>

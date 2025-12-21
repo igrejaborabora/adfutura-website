@@ -1,4 +1,6 @@
 import { getDictionary } from "@/lib/dictionary";
+import TextReveal from "@/components/ui/TextReveal";
+import MagneticButton from "@/components/ui/MagneticButton";
 
 export default async function HomePage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
@@ -6,145 +8,105 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
   const { home } = dict;
 
   return (
-    <div className="animate-in">
-      {/* Hero */}
+    <div style={{ paddingBottom: '10vh' }}>
+
+      {/* Hero Section */}
       <section className="hero">
-        <div className="container hero-content">
-          <span className="section-label">adFutura</span>
-          <h1>{home.hero.title}</h1>
-          <p>{home.hero.subtitle}</p>
-          <div style={{ padding: '1rem', background: 'rgba(255,255,255,0.02)', borderRadius: '8px', marginBottom: '2rem' }}>
-            <p style={{ fontSize: '1.1rem', whiteSpace: 'pre-line' }}>{home.hero.description}</p>
+        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+          <div className="section-label">
+            <span>adFutura / Protocol v2.0</span>
           </div>
-          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
-            <a href={`/${lang}/services`} className="btn btn-primary">{home.hero.cta_services}</a>
-            <a href={`/${lang}/work`} className="btn btn-outline">{home.hero.cta_work}</a>
-          </div>
-        </div>
-      </section>
-
-      {/* The Problem */}
-      <section className="glass" style={{ margin: '4rem 0' }}>
-        <div className="container">
-          <span className="section-label">{home.problem.title}</span>
-          <div style={{ maxWidth: '800px' }}>
-            <h2 style={{ marginBottom: '2rem' }}>{home.problem.subtitle}</h2>
-            <p style={{ fontSize: '1.25rem', whiteSpace: 'pre-line', color: 'var(--text-dim)' }}>
-              {home.problem.body}
-            </p>
+          <h1 style={{ marginBottom: '2rem' }}>
+            <TextReveal delay={0.2}>{home.hero.title}</TextReveal>
+          </h1>
+          <p style={{ maxWidth: '600px', fontSize: '1.5rem', color: 'var(--text-dim)', marginBottom: '4rem', lineHeight: '1.4' }}>
+            {home.hero.subtitle}
+          </p>
+          <div style={{ display: 'flex', gap: '2rem' }}>
+            <MagneticButton href={`/${lang}/services`} className="btn btn-primary">
+              {home.hero.cta_services}
+            </MagneticButton>
+            <MagneticButton href={`/${lang}/work`} className="btn btn-outline">
+              {home.hero.cta_work}
+            </MagneticButton>
           </div>
         </div>
       </section>
 
-      {/* The Shift */}
-      <section>
+      {/* The Problem: High Contrast Protocol Style */}
+      <section style={{ padding: '10rem 0', background: '#050505' }}>
         <div className="container">
-          <span className="section-label">{home.shift.title}</span>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: '4rem', alignItems: 'start' }}>
+          <span className="section-label">01 / DIAGNOSIS</span>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '4rem', alignItems: 'start' }}>
             <div>
-              <h2>{home.shift.subtitle}</h2>
+              <h2 style={{ fontSize: '1.5rem', color: 'var(--text-dim)' }}>{home.problem.title}</h2>
             </div>
             <div>
-              <p style={{ marginBottom: '2rem', fontSize: '1.1rem' }}>{home.shift.body_intro}</p>
-              <ul style={{ display: 'grid', gap: '1rem' }}>
-                {home.shift.points.map((point: string, i: number) => (
-                  <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '1rem', fontSize: '1.25rem' }}>
-                    <span style={{ color: 'var(--accent-cyan)' }}>—</span> {point}
-                  </li>
-                ))}
-              </ul>
-              <p style={{ marginTop: '2rem', fontWeight: '700' }}>{home.shift.footer}</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Our Position */}
-      <section className="glass" style={{ background: 'linear-gradient(to bottom, transparent, rgba(0, 112, 243, 0.05))' }}>
-        <div className="container">
-          <span className="section-label">{home.position.title}</span>
-          <div style={{ maxWidth: '800px' }}>
-            <h2>{home.position.subtitle}</h2>
-            <p style={{ fontSize: '1.25rem', whiteSpace: 'pre-line' }}>{home.position.body}</p>
-          </div>
-        </div>
-      </section>
-
-      {/* What Makes Us Different */}
-      <section>
-        <div className="container">
-          <span className="section-label">{home.different.title}</span>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem' }}>
-            <div>
-              <h2>{home.different.subtitle}</h2>
-              <p style={{ color: 'var(--text-dim)', marginBottom: '2rem' }}>{home.different.intro}</p>
-              <ul style={{ display: 'grid', gap: '1.5rem' }}>
-                {home.different.points.map((point: string, i: number) => (
-                  <li key={i} style={{ fontSize: '1.5rem', fontWeight: '500' }}>
-                    <span style={{ color: 'var(--accent-blue)', marginRight: '1rem' }}>0{i + 1}.</span>
-                    {point}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div style={{ display: 'flex', alignItems: 'flex-end' }}>
-              <p style={{ fontSize: '1.25rem', borderLeft: '2px solid var(--accent-cyan)', paddingLeft: '2rem' }}>
-                {home.different.outro}
+              <h3 style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', lineHeight: '1.1', marginBottom: '3rem' }}>
+                <TextReveal>{home.problem.subtitle}</TextReveal>
+              </h3>
+              <p style={{ fontSize: '1.25rem', color: 'var(--text-dim)', lineHeight: '1.6', maxWidth: '800px' }}>
+                {home.problem.body}
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* First Principles Preview */}
-      <section className="glass">
+      {/* The Shift: Data Visualization Feel */}
+      <section style={{ borderTop: '1px solid var(--glass-border)', borderBottom: '1px solid var(--glass-border)', padding: '0' }}>
+        <div className="container" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', minHeight: '80vh' }}>
+          <div style={{ borderRight: '1px solid var(--glass-border)', padding: '6rem 4rem 6rem 0', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+            <span className="section-label">02 / SHIFT</span>
+            <h2>{home.shift.title}</h2>
+            <p style={{ marginTop: '2rem', fontSize: '1.2rem', color: 'var(--text-dim)' }}>{home.shift.body_intro}</p>
+          </div>
+          <div style={{ padding: '6rem 0 6rem 4rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '2rem' }}>
+            {home.shift.points.map((point: string, i: number) => (
+              <div key={i} className="glass" style={{ padding: '2rem', borderLeft: '4px solid var(--accent-blue)' }}>
+                <span className="mono" style={{ color: 'var(--accent-blue)', fontSize: '0.9rem', marginBottom: '0.5rem', display: 'block' }}>DATA POINT 0{i + 1}</span>
+                <p style={{ fontSize: '1.25rem', fontWeight: '500' }}>{point}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Principles Preview: Horizontal Scroll Feel (Static for now, but styled) */}
+      <section style={{ padding: '10rem 0' }}>
         <div className="container">
-          <span className="section-label">{home.principles_preview.title}</span>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', marginBottom: '3rem' }}>
+          <span className="section-label">03 / CORE PRINCIPLES</span>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2rem', marginTop: '4rem' }}>
             {home.principles_preview.points.map((point: string, i: number) => (
-              <div key={i} style={{ padding: '2rem', border: '1px solid var(--glass-border)', background: 'rgba(255,255,255,0.01)' }}>
-                <p style={{ fontSize: '1.1rem' }}>{point}</p>
-              </div>
-            ))}
-          </div>
-          <div style={{ textAlign: 'center' }}>
-            <a href={`/${lang}/insights`} className="btn btn-outline">{home.principles_preview.cta}</a>
-          </div>
-        </div>
-      </section>
-
-      {/* Our Approach */}
-      <section>
-        <div className="container">
-          <span className="section-label">{home.approach.title}</span>
-          <h2 style={{ textAlign: 'center', marginBottom: '4rem' }}>{home.approach.subtitle}</h2>
-          <div style={{ display: 'flex', justifyContent: 'space-between', gap: '2rem', overflowX: 'auto', paddingBottom: '2rem' }}>
-            {home.approach.points.map((step: string, i: number) => (
-              <div key={i} style={{ textAlign: 'center', flex: 1, minWidth: '200px' }}>
-                <div style={{ width: '60px', height: '60px', borderRadius: '50%', background: 'var(--accent-blue)', margin: '0 auto 1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', fontWeight: 'bold' }}>
-                  {i + 1}
-                </div>
-                <h3>{step}</h3>
+              <div key={i} style={{ height: '400px', border: '1px solid #333', padding: '3rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', transition: 'all 0.4s', cursor: 'grab' }} className="glass">
+                <span className="mono" style={{ fontSize: '3rem', opacity: 0.2 }}>0{i + 1}</span>
+                <p style={{ fontSize: '1.75rem', lineHeight: '1.2' }}>{point}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Invitation (Footer CTA) */}
-      <section className="glass" style={{ textAlign: 'center', padding: '8rem 0' }}>
+      {/* Invitation */}
+      <section style={{ padding: '15rem 0', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '1000px', height: '1000px', background: 'radial-gradient(circle, rgba(0, 102, 255, 0.1) 0%, transparent 70%)', zIndex: -1 }}></div>
         <div className="container">
-          <span className="section-label">{home.invitation.title}</span>
-          <h2 style={{ marginBottom: '2rem' }}>{home.invitation.subtitle}</h2>
-          <p style={{ maxWidth: '600px', margin: '0 auto 3rem', color: 'var(--text-dim)', fontSize: '1.1rem' }}>{home.invitation.intro}</p>
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem', marginBottom: '3rem' }}>
+          <h2 style={{ fontSize: 'clamp(3rem, 6vw, 5rem)', marginBottom: '3rem' }}>
+            <TextReveal>{home.invitation.subtitle}</TextReveal>
+          </h2>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '3rem', marginBottom: '4rem', flexWrap: 'wrap' }}>
             {home.invitation.points.map((point: string, i: number) => (
-              <div key={i} style={{ color: 'var(--accent-cyan)' }}>• {point}</div>
+              <span key={i} className="mono" style={{ color: 'var(--accent-blue)', border: '1px solid var(--accent-blue)', padding: '0.5rem 1rem' }}>
+                {point}
+              </span>
             ))}
           </div>
-          <a href={`/${lang}/contact`} className="btn btn-primary" style={{ padding: '1rem 3rem', fontSize: '1.1rem' }}>{home.invitation.cta}</a>
+          <MagneticButton href={`/${lang}/contact`} className="btn btn-primary" style={{ transform: 'scale(1.2)' }}>
+            {home.invitation.cta}
+          </MagneticButton>
         </div>
       </section>
+
     </div>
   );
 }

@@ -17,48 +17,49 @@
     },
     "home": {
         "hero": {
-            "title": "Intelligence for the AI Age",
-            "subtitle": "A IA está a transformar a inteligência em infraestrutura.",
-            "description": "A vantagem competitiva define-se, cada vez mais, pela forma como as organizações desenham decisões, operacionalizam inteligência e escalam coerência.\nOs líderes precisam de sistemas que convertam inteligência em direção — com rapidez, repetibilidade e escala.",
-            "cta_services": "Explorar Serviços",
-            "cta_work": "Ver Trabalho"
+            "brand": "adFutura",
+            "tagline": "Intelligence for the AI Age",
+            "headline": "A IA está a transformar a inteligência em infraestrutura.",
+            "subheadline": "A vantagem competitiva define-se, cada vez mais, pela forma como as organizações desenham decisões, operacionalizam inteligência e escalam coerência.",
+            "body": "Os líderes precisam de sistemas que convertam inteligência em direção — com rapidez, repetibilidade e escala.",
+            "cta_primary": "Explorar Serviços",
+            "cta_secondary": "Ver Trabalho"
         },
         "problem": {
             "title": "O PROBLEMA",
-            "subtitle": "Numa economia de IA, a inteligência está distribuída por ferramentas, equipas, modelos e fluxos de trabalho.",
-            "body": "As decisões acontecem localmente. A execução acelera.\nA vantagem exige um sistema operativo que alinhe inteligência com autoridade, ação e escala."
+            "body": "Numa economia de IA, a inteligência está distribuída por ferramentas, equipas, modelos e fluxos de trabalho. As decisões acontecem localmente. A execução acelera. A vantagem exige um sistema operativo que alinhe inteligência com autoridade, ação e escala."
         },
         "shift": {
             "title": "A MUDANÇA",
             "subtitle": "A vantagem nasce da capacidade de escalar a qualidade da decisão.",
-            "body_intro": "À medida que a complexidade, o volume e a velocidade aumentam, a performance depende de:",
+            "intro": "À medida que a complexidade, o volume e a velocidade aumentam, a performance depende de:",
             "points": [
                 "autoridade clara de decisão",
                 "inteligência integrada na operação",
                 "governação que preserva a intenção",
                 "capacidades que se fortalecem com o uso"
             ],
-            "footer": "O crescimento passa a depender de estrutura."
+            "conclusion": "O crescimento passa a depender de estrutura."
         },
         "position": {
             "title": "O NOSSO POSICIONAMENTO",
             "subtitle": "A adFutura é uma firma de inteligência estratégica.",
-            "body": "Trabalhamos com líderes que constroem organizações numa economia de IA, traduzindo analítica avançada e IA em direção, sistemas e vantagem sustentada.\nO nosso foco: crescimento que se sustenta à escala."
+            "body": "Trabalhamos com líderes que constroem organizações numa economia de IA, traduzindo analítica avançada e IA em direção, sistemas e vantagem sustentada.",
+            "focus": "O nosso foco: crescimento que se sustenta à escala."
         },
-        "different": {
+        "differentiation": {
             "title": "O QUE NOS DIFERENCIA",
             "subtitle": "Começamos pela direção. As ferramentas seguem.",
-            "intro": "Começamos por desenhar:",
-            "points": [
+            "list": [
                 "autoridade de decisão",
                 "intenção estratégica",
                 "arquitetura de sistema para escala"
             ],
-            "outro": "Depois construímos aquilo que a organização irá operar — de forma autónoma, sob pressão e ao longo do tempo."
+            "body": "Depois construímos aquilo que a organização irá operar — de forma autónoma, sob pressão e ao longo do tempo."
         },
         "principles_preview": {
             "title": "PRINCÍPIOS (LOCKED)",
-            "points": [
+            "list": [
                 "Desenhamos antes de construir. Sempre.",
                 "O que criamos tem de funcionar sem nós.",
                 "A escala é assumida desde o primeiro dia.",
@@ -71,41 +72,35 @@
         "approach": {
             "title": "A NOSSA ABORDAGEM",
             "subtitle": "Da inteligência à capacidade escalável.",
-            "intro": "Um ciclo contínuo:",
-            "points": [
+            "loop": [
                 "Enquadrar direção",
                 "Desenhar arquitetura",
                 "Construir capacidades",
                 "Escalar coerência"
             ],
-            "outro": "O resultado é uma organização que opera com clareza à medida que a complexidade aumenta."
+            "output": "O resultado é uma organização que opera com clareza à medida que a complexidade aumenta."
         },
         "services_preview": {
             "title": "ARQUITETURA DE SERVIÇOS",
-            "subtitle": "Quatro domínios integrados:",
-            "domains": [
+            "list": [
                 "Advisory",
                 "Plataformas",
                 "Inovação",
                 "Transformação"
             ],
-            "body": "Um sistema — desenhado para passar de direção → construção → escala.",
+            "output": "Um sistema — desenhado para passar de direção → construção → escala.",
             "cta": "Explorar Serviços"
         },
         "work_preview": {
             "title": "PROVA DE MAGNITUDE",
-            "body": "Mostramos escala, não volume.\nUm conjunto reduzido de engagements emblemáticos — cada um uma mudança estrutural, desenhada para durar.",
+            "subtitle": "Mostramos escala, não volume.",
+            "body": "Um conjunto reduzido de engagements emblemáticos — cada um uma mudança estrutural, desenhada para durar.",
             "cta": "Ver Trabalho"
         },
         "invitation": {
             "title": "O CONVITE",
             "subtitle": "Uma conversa estratégica.",
-            "intro": "Começamos por analisar:",
-            "points": [
-                "onde existe inteligência",
-                "onde as decisões têm maior alavancagem",
-                "onde a escala cria fricção"
-            ],
+            "body": "Começamos por analisar: onde existe inteligência, onde as decisões têm maior alavancagem, onde a escala cria fricção.",
             "outro": "A partir daí, desenhamos a arquitetura do engagement.",
             "cta": "Contacto"
         }
@@ -114,23 +109,19 @@
         "landing": {
             "title": "SERVIÇOS",
             "subtitle": "ARQUITETURA DE SERVIÇOS",
+            "body": "Quatro domínios integrados:",
             "domains": [
                 "Advisory",
                 "Plataformas",
                 "Inovação",
                 "Transformação"
             ],
-            "body": "Um sistema — desenhado para passar de direção → construção → escala."
+            "output": "Um sistema — desenhado para passar de direção → construção → escala."
         },
         "advisory": {
             "title": "ADVISORY",
             "subtitle": "Direção Estratégica",
-            "intro": "Ajudamos líderes a definir:",
-            "points": [
-                "onde as decisões críticas são detidas",
-                "que inteligência deve orientar essas decisões",
-                "que governação torna o crescimento seguro e escalável"
-            ],
+            "intro": "Ajudamos líderes a definir: onde as decisões críticas são detidas, que inteligência deve orientar essas decisões, que governação torna o crescimento seguro e escalável.",
             "includes": [
                 "Estratégia e ambição de IA",
                 "Governação da decisão",
@@ -182,7 +173,7 @@
     "work": {
         "title": "TRABALHO",
         "subtitle": "PROVA DE MAGNITUDE",
-        "body": "Mostramos escala, não volume.\nUm conjunto reduzido de engagements emblemáticos — cada um uma mudança estrutural, desenhada para durar.",
+        "body": "Mostramos escala, não volume. Um conjunto reduzido de engagements emblemáticos — cada um uma mudança estrutural, desenhada para durar.",
         "placeholder": "FLAGSHIP EXAMPLE",
         "cta": "Contacto"
     },
@@ -198,8 +189,8 @@
     },
     "principles": {
         "title": "PRINCÍPIOS (LOCKED)",
+        "intro": "Desenhamos antes de construir. Sempre.",
         "points": [
-            "Desenhamos antes de construir. Sempre.",
             "O que criamos tem de funcionar sem nós.",
             "A escala é assumida desde o primeiro dia.",
             "Não separamos pensamento de execução.",

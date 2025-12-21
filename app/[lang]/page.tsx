@@ -17,17 +17,17 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
             <span>adFutura / Protocol v2.0</span>
           </div>
           <h1 style={{ marginBottom: '2rem' }}>
-            <TextReveal delay={0.2}>{home.hero.title}</TextReveal>
+            <TextReveal delay={0.2}>{home.hero.headline}</TextReveal>
           </h1>
           <p style={{ maxWidth: '600px', fontSize: '1.5rem', color: 'var(--text-dim)', marginBottom: '4rem', lineHeight: '1.4' }}>
-            {home.hero.subtitle}
+            {home.hero.subheadline}
           </p>
           <div style={{ display: 'flex', gap: '2rem' }}>
             <MagneticButton href={`/${lang}/services`} className="btn btn-primary">
-              {home.hero.cta_services}
+              {home.hero.cta_primary}
             </MagneticButton>
             <MagneticButton href={`/${lang}/work`} className="btn btn-outline">
-              {home.hero.cta_work}
+              {home.hero.cta_secondary}
             </MagneticButton>
           </div>
         </div>
@@ -43,11 +43,8 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
             </div>
             <div>
               <h3 style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', lineHeight: '1.1', marginBottom: '3rem' }}>
-                <TextReveal>{home.problem.subtitle}</TextReveal>
+                <TextReveal>{home.problem.body}</TextReveal>
               </h3>
-              <p style={{ fontSize: '1.25rem', color: 'var(--text-dim)', lineHeight: '1.6', maxWidth: '800px' }}>
-                {home.problem.body}
-              </p>
             </div>
           </div>
         </div>
@@ -59,7 +56,8 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
           <div style={{ borderRight: '1px solid var(--glass-border)', padding: '6rem 4rem 6rem 0', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
             <span className="section-label">02 / SHIFT</span>
             <h2>{home.shift.title}</h2>
-            <p style={{ marginTop: '2rem', fontSize: '1.2rem', color: 'var(--text-dim)' }}>{home.shift.body_intro}</p>
+            <p style={{ marginTop: '2rem', fontSize: '1.2rem', color: 'var(--text-dim)' }}>{home.shift.intro}</p>
+            <p style={{ marginTop: '2rem', fontSize: '1.2rem', color: 'white' }}>{home.shift.conclusion}</p>
           </div>
           <div style={{ padding: '6rem 0 6rem 4rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '2rem' }}>
             {home.shift.points.map((point: string, i: number) => (
@@ -77,7 +75,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
         <div className="container">
           <span className="section-label">03 / CORE PRINCIPLES</span>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2rem', marginTop: '4rem' }}>
-            {home.principles_preview.points.map((point: string, i: number) => (
+            {home.principles_preview.list.map((point: string, i: number) => (
               <div key={i} style={{ height: '400px', border: '1px solid #333', padding: '3rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', transition: 'all 0.4s', cursor: 'grab' }} className="glass">
                 <span className="mono" style={{ fontSize: '3rem', opacity: 0.2 }}>0{i + 1}</span>
                 <p style={{ fontSize: '1.75rem', lineHeight: '1.2' }}>{point}</p>

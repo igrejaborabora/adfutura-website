@@ -17,51 +17,52 @@
     },
     "home": {
         "hero": {
-            "title": "Intelligence for the AI Age",
-            "subtitle": "AI is turning intelligence into infrastructure.",
-            "description": "Competitive advantage is increasingly defined by how organisations design decisions, operate intelligence, and scale coherence.\nLeaders need systems that convert intelligence into direction—fast, repeatably, at scale.",
-            "cta_services": "Explore Services",
-            "cta_work": "View Work"
+            "brand": "adFutura",
+            "tagline": "Intelligence for the AI Age",
+            "headline": "AI is turning intelligence into infrastructure.",
+            "subheadline": "Competitive advantage is increasingly defined by how organisations design decisions, operate intelligence, and scale coherence.",
+            "body": "Leaders need systems that convert intelligence into direction—fast, repeatably, at scale.",
+            "cta_primary": "Explore Services",
+            "cta_secondary": "View Work"
         },
         "problem": {
             "title": "THE PROBLEM",
-            "subtitle": "In an AI economy, intelligence sits across tools, teams, models, and workflows.",
-            "body": "Decisions happen locally. Execution accelerates.\nAdvantage requires an operating system that aligns intelligence with authority, action, and scale."
+            "body": "In an AI economy, intelligence sits across tools, teams, models, and workflows. Decisions happen locally. Execution accelerates. Advantage requires an operating system that aligns intelligence with authority, action, and scale."
         },
         "shift": {
             "title": "THE SHIFT",
             "subtitle": "Advantage comes from the ability to scale decision quality.",
-            "body_intro": "As complexity, volume, and velocity rise, performance depends on:",
+            "intro": "As complexity, volume, and velocity rise, performance depends on:",
             "points": [
                 "clear decision authority",
                 "intelligence embedded in operations",
                 "governance that preserves intent",
                 "capabilities that strengthen through use"
             ],
-            "footer": "Growth depends on structure."
+            "conclusion": "Growth depends on structure."
         },
         "position": {
             "title": "OUR POSITION",
             "subtitle": "adFutura is a strategic intelligence firm.",
-            "body": "We work with leaders building organisations in an AI economy, translating advanced analytics and AI into direction, systems, and sustained advantage.\nOur focus: growth that holds under scale."
+            "body": "We work with leaders building organisations in an AI economy, translating advanced analytics and AI into direction, systems, and sustained advantage.",
+            "focus": "Our focus: growth that holds under scale."
         },
-        "different": {
+        "differentiation": {
             "title": "WHAT MAKES US DIFFERENT",
             "subtitle": "We lead with direction. Tools follow.",
-            "intro": "We start by designing:",
-            "points": [
+            "list": [
                 "decision authority",
                 "strategic intent",
                 "system architecture for scale"
             ],
-            "outro": "Then we build what the organisation will run—independently, under pressure, over time."
+            "body": "Then we build what the organisation will run—independently, under pressure, over time."
         },
         "principles_preview": {
             "title": "FIRST PRINCIPLES (LOCKED)",
-            "points": [
+            "list": [
                 "We design before we build. Always.",
                 "What we create must operate without us.",
-                "Scale is assumed from the first day",
+                "Scale is assumed from the first day.",
                 "We do not separate thinking from making.",
                 "Intelligence must result in action.",
                 "Everything we do derives from these constraints."
@@ -71,41 +72,35 @@
         "approach": {
             "title": "OUR APPROACH",
             "subtitle": "From intelligence to scalable capability.",
-            "intro": "A continuous loop:",
-            "points": [
+            "loop": [
                 "Frame direction",
                 "Design architecture",
                 "Build capabilities",
                 "Scale coherence"
             ],
-            "outro": "The output is an organisation that performs with clarity as complexity rises."
+            "output": "The output is an organisation that performs with clarity as complexity rises."
         },
         "services_preview": {
             "title": "OUR SERVICE ARCHITECTURE",
-            "subtitle": "Four integrated domains:",
-            "domains": [
+            "list": [
                 "Advisory",
                 "Platforms",
                 "Innovation",
                 "Transformation"
             ],
-            "body": "One system—designed to move from direction → build → scale.",
+            "output": "One system—designed to move from direction → build → scale.",
             "cta": "Explore Services"
         },
         "work_preview": {
             "title": "PROOF OF MAGNITUDE",
-            "body": "We show scale, not volume.\nA small number of flagship engagements—each one a structural shift, designed to hold over time.",
+            "subtitle": "We show scale, not volume.",
+            "body": "A small number of flagship engagements—each one a structural shift, designed to hold over time.",
             "cta": "View Work"
         },
         "invitation": {
             "title": "THE INVITATION",
             "subtitle": "A strategic conversation.",
-            "intro": "We begin by examining:",
-            "points": [
-                "where intelligence exists",
-                "where decisions carry the highest leverage",
-                "where scale creates friction"
-            ],
+            "body": "We begin by examining: where intelligence exists, where decisions carry the highest leverage, where scale creates friction.",
             "outro": "From there, we design the engagement architecture.",
             "cta": "Contact"
         }
@@ -114,23 +109,19 @@
         "landing": {
             "title": "SERVICES",
             "subtitle": "OUR SERVICE ARCHITECTURE",
+            "body": "Four integrated domains:",
             "domains": [
                 "Advisory",
                 "Platforms",
                 "Innovation",
                 "Transformation"
             ],
-            "body": "One system—designed to move from direction → build → scale."
+            "output": "One system—designed to move from direction → build → scale."
         },
         "advisory": {
             "title": "ADVISORY",
             "subtitle": "Strategic Direction",
-            "intro": "We help leaders define:",
-            "points": [
-                "where critical decisions are owned",
-                "what intelligence must drive those decisions",
-                "what governance makes growth safe and scalable"
-            ],
+            "intro": "We help leaders define: where critical decisions are owned, what intelligence must drive those decisions, what governance makes growth safe and scalable.",
             "includes": [
                 "AI strategy and ambition",
                 "Decision governance",
@@ -182,7 +173,7 @@
     "work": {
         "title": "WORK",
         "subtitle": "PROOF OF MAGNITUDE",
-        "body": "We show scale, not volume.\nA small number of flagship engagements—each one a structural shift, designed to hold over time.",
+        "body": "We show scale, not volume. A small number of flagship engagements—each one a structural shift, designed to hold over time.",
         "placeholder": "FLAGSHIP EXAMPLE",
         "cta": "Contact"
     },
@@ -198,10 +189,10 @@
     },
     "principles": {
         "title": "FIRST PRINCIPLES (LOCKED)",
+        "intro": "We design before we build. Always.",
         "points": [
-            "We design before we build. Always.",
             "What we create must operate without us.",
-            "Scale is assumed from the first day",
+            "Scale is assumed from the first day.",
             "We do not separate thinking from making.",
             "Intelligence must result in action.",
             "Everything we do derives from these constraints."

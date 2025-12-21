@@ -20,7 +20,7 @@ export default async function InsightsPage({ params }: { params: Promise<{ lang:
                                 <p style={{ color: 'var(--text-dim)' }}>Core constraints that derive our work.</p>
                             </div>
                             <span style={{ fontSize: '2rem', color: 'var(--accent-cyan)' }}>→</span>
-                        </a>
+                        </Link>
 
                         {insights.list.slice(1).map((item: string, i: number) => (
                             <div key={i} className="glass" style={{ padding: '3rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', opacity: 0.5, cursor: 'not-allowed' }}>

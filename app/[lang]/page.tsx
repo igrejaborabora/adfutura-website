@@ -70,6 +70,36 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
         </div>
       </section>
 
+      {/* Position */}
+      <section style={{ padding: '10rem 0', background: '#050505' }}>
+        <div className="container">
+          <span className="section-label">OUR POSITION</span>
+          <h2 style={{ marginBottom: '2rem' }}>{home.position.title}</h2>
+          <p style={{ fontSize: '1.5rem', color: 'var(--text-dim)', marginBottom: '2rem' }}>{home.position.subtitle}</p>
+          <p style={{ fontSize: '1.25rem', lineHeight: '1.6', marginBottom: '2rem' }}>{home.position.body}</p>
+          <p style={{ fontSize: '1.25rem', color: 'var(--accent-blue)' }}>{home.position.focus}</p>
+        </div>
+      </section>
+
+      {/* Differentiation */}
+      <section style={{ padding: '10rem 0' }}>
+        <div className="container" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem' }}>
+          <div>
+            <span className="section-label">DIFFERENTIATION</span>
+            <h2>{home.differentiation.title}</h2>
+            <p style={{ fontSize: '1.5rem', marginTop: '2rem', color: 'var(--text-dim)' }}>{home.differentiation.subtitle}</p>
+            <p style={{ fontSize: '1.25rem', marginTop: '2rem' }}>{home.differentiation.body}</p>
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', justifyContent: 'center' }}>
+            {home.differentiation.list.map((item: string, i: number) => (
+              <div key={i} className="glass" style={{ padding: '2rem' }}>
+                <p style={{ fontSize: '1.5rem' }}>{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Principles Preview: Horizontal Scroll Feel (Static for now, but styled) */}
       <section style={{ padding: '10rem 0' }}>
         <div className="container">
@@ -82,6 +112,54 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Approach */}
+      <section style={{ padding: '10rem 0', background: '#050505' }}>
+        <div className="container">
+          <span className="section-label">METHODOLOGY</span>
+          <h2 style={{ marginBottom: '4rem' }}>{home.approach.title}</h2>
+          <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '2rem' }}>
+            {home.approach.loop.map((step: string, i: number) => (
+              <div key={i} style={{ flex: '1 1 200px', textAlign: 'center' }}>
+                <div style={{ width: '100%', aspectRatio: '1', borderRadius: '50%', border: '1px solid var(--accent-blue)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1rem' }} className="glass">
+                  <span style={{ fontSize: '1.25rem' }}>{step}</span>
+                </div>
+                {i < home.approach.loop.length - 1 && <div style={{ fontSize: '2rem', color: 'var(--text-dim)' }}>↓</div>}
+              </div>
+            ))}
+          </div>
+          <p style={{ textAlign: 'center', marginTop: '4rem', fontSize: '1.5rem' }}>{home.approach.output}</p>
+        </div>
+      </section>
+
+      {/* Services Preview */}
+      <section style={{ padding: '10rem 0' }}>
+        <div className="container">
+          <span className="section-label">ARCHITECTURES</span>
+          <h2 style={{ marginBottom: '4rem' }}>{home.services_preview.title}</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '2rem' }}>
+            {home.services_preview.list.map((service: string, i: number) => (
+              <div key={i} className="glass" style={{ padding: '3rem' }}>
+                <h3 style={{ fontSize: '2rem' }}>{service}</h3>
+              </div>
+            ))}
+          </div>
+          <div style={{ marginTop: '4rem', textAlign: 'center' }}>
+            <p style={{ fontSize: '1.5rem', marginBottom: '2rem' }}>{home.services_preview.output}</p>
+            <MagneticButton href={`/${lang}/services`} className="btn btn-outline">{home.services_preview.cta}</MagneticButton>
+          </div>
+        </div>
+      </section>
+
+      {/* Work Preview */}
+      <section style={{ padding: '10rem 0', background: '#050505' }}>
+        <div className="container" style={{ textAlign: 'center' }}>
+          <span className="section-label">MAGNITUDE</span>
+          <h2 style={{ marginBottom: '2rem' }}>{home.work_preview.title}</h2>
+          <p style={{ fontSize: '1.5rem', maxWidth: '800px', margin: '0 auto 4rem auto' }}>{home.work_preview.body}</p>
+          <MagneticButton href={`/${lang}/work`} className="btn btn-primary">{home.work_preview.cta}</MagneticButton>
         </div>
       </section>
 

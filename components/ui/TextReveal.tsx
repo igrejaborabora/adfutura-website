@@ -28,7 +28,6 @@ export default function TextReveal({ children, className, delay = 0 }: TextRevea
             opacity: 1,
             y: 0,
             filter: "blur(0px)",
-            // @ts-expect-error - Framer Motion generic type mismatch
             transition: {
                 type: "spring",
                 damping: 12,
@@ -39,7 +38,6 @@ export default function TextReveal({ children, className, delay = 0 }: TextRevea
             opacity: 0,
             y: 20,
             filter: "blur(10px)",
-            // @ts-expect-error - Framer Motion generic type mismatch
             transition: {
                 type: "spring",
                 damping: 12,

@@ -2,7 +2,7 @@ import { getDictionary } from "@/lib/dictionary";
 
 export default async function WorkPage({ params }: { params: Promise<{ lang: string }> }) {
     const { lang } = await params;
-    const dict = await getDictionary(lang as any);
+    const dict = await getDictionary(lang as 'en' | 'pt');
     const { work } = dict;
 
     return (

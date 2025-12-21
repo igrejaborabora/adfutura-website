@@ -2,6 +2,7 @@
 
 import { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 export default function MagneticButton({ children, className = '', href = '#' }: { children: React.ReactNode, className?: string, href?: string }) {
     const ref = useRef<HTMLDivElement>(null);
@@ -9,7 +10,8 @@ export default function MagneticButton({ children, className = '', href = '#' }:
 
     const handleMouse = (e: React.MouseEvent) => {
         const { clientX, clientY } = e;
-        const { height, width, left, top } = ref.current!.getBoundingClientRect();
+        if (!ref.current) return;
+        const { height, width, left, top } = ref.current.getBoundingClientRect();
         const middleX = clientX - (left + width / 2);
         const middleY = clientY - (top + height / 2);
         setPosition({ x: middleX, y: middleY });
@@ -30,9 +32,9 @@ export default function MagneticButton({ children, className = '', href = '#' }:
             animate={{ x, y }}
             transition={{ type: 'spring', stiffness: 150, damping: 15, mass: 0.1 }}
         >
-            <a href={href} className={className}>
+            <Link href={href} className={className}>
                 {children}
-            </a>
+            </Link>
         </motion.div>
     );
 }

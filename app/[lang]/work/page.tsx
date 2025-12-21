@@ -1,4 +1,5 @@
 import { getDictionary } from "@/lib/dictionary";
+import Link from "next/link";
 
 export default async function WorkPage({ params }: { params: Promise<{ lang: string }> }) {
     const { lang } = await params;
@@ -29,7 +30,7 @@ export default async function WorkPage({ params }: { params: Promise<{ lang: str
 
                     <div style={{ marginTop: '8rem', padding: '6rem', border: '1px solid var(--glass-border)', background: 'linear-gradient(45deg, transparent, rgba(0, 223, 216, 0.05))' }}>
                         <h2 style={{ marginBottom: '2rem' }}>Ready for a structural shift?</h2>
-                        <a href={`/${lang}/contact`} className="btn btn-primary">{work.cta}</a>
+                        <Link href={`/${lang}/contact`} className="btn btn-primary">{work.cta}</Link>
                     </div>
                 </div>
             </section>

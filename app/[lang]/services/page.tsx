@@ -1,4 +1,5 @@
 import { getDictionary } from "@/lib/dictionary";
+import Link from "next/link";
 
 export default async function ServicesPage({ params }: { params: Promise<{ lang: string }> }) {
     const { lang } = await params;
@@ -39,7 +40,7 @@ export default async function ServicesPage({ params }: { params: Promise<{ lang:
                                     </li>
                                 ))}
                             </ul>
-                            <a href={`/${lang}/contact`} className="btn btn-primary">{services.advisory.cta}</a>
+                            <Link href={`/${lang}/contact`} className="btn btn-primary">{services.advisory.cta}</Link>
                         </div>
                         <div style={{ padding: '3rem', borderLeft: '1px solid var(--glass-border)', background: 'rgba(255,255,255,0.01)' }}>
                             <h4 style={{ marginBottom: '1.5rem', textTransform: 'uppercase', fontSize: '0.8rem', opacity: 0.6 }}>Includes</h4>
@@ -69,7 +70,7 @@ export default async function ServicesPage({ params }: { params: Promise<{ lang:
                                 ))}
                             </ul>
                             <p style={{ fontSize: '1.1rem', marginBottom: '2.5rem', fontStyle: 'italic' }}>{services.platforms.outro}</p>
-                            <a href={`/${lang}/contact`} className="btn btn-outline">{services.platforms.cta}</a>
+                            <Link href={`/${lang}/contact`} className="btn btn-outline">{services.platforms.cta}</Link>
                         </div>
                         <div style={{ direction: 'ltr', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                             <div style={{ width: '100%', aspectRatio: '16/9', background: 'var(--glass-bg)', border: '1px solid var(--glass-border)', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-dim)' }}>
@@ -95,7 +96,7 @@ export default async function ServicesPage({ params }: { params: Promise<{ lang:
                     </div>
                     <p style={{ fontSize: '1.5rem', fontWeight: '600', textAlign: 'center', margin: '4rem 0' }}>{services.innovation.outro}</p>
                     <div style={{ textAlign: 'center' }}>
-                        <a href={`/${lang}/contact`} className="btn btn-primary">{services.innovation.cta}</a>
+                        <Link href={`/${lang}/contact`} className="btn btn-primary">{services.innovation.cta}</Link>
                     </div>
                 </div>
             </section>
@@ -116,7 +117,7 @@ export default async function ServicesPage({ params }: { params: Promise<{ lang:
                             ))}
                         </div>
                         <p style={{ fontSize: '1.25rem', color: 'var(--accent-cyan)', marginBottom: '3rem' }}>{services.transformation.outro}</p>
-                        <a href={`/${lang}/contact`} className="btn btn-outline">{services.transformation.cta}</a>
+                        <Link href={`/${lang}/contact`} className="btn btn-outline">{services.transformation.cta}</Link>
                     </div>
                 </div>
             </section>

@@ -100,7 +100,12 @@
         "invitation": {
             "title": "O CONVITE",
             "subtitle": "Uma conversa estratégica.",
-            "body": "Começamos por analisar: onde existe inteligência, onde as decisões têm maior alavancagem, onde a escala cria fricção.",
+            "intro": "Começamos por analisar:",
+            "points": [
+                "onde existe inteligência",
+                "onde as decisões têm maior alavancagem",
+                "onde a escala cria fricção"
+            ],
             "outro": "A partir daí, desenhamos a arquitetura do engagement.",
             "cta": "Contacto"
         }

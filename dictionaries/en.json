@@ -100,7 +100,12 @@
         "invitation": {
             "title": "THE INVITATION",
             "subtitle": "A strategic conversation.",
-            "body": "We begin by examining: where intelligence exists, where decisions carry the highest leverage, where scale creates friction.",
+            "intro": "We begin by examining:",
+            "points": [
+                "where intelligence exists",
+                "where decisions carry the highest leverage",
+                "where scale creates friction"
+            ],
             "outro": "From there, we design the engagement architecture.",
             "cta": "Contact"
         }

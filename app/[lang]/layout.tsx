@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "../../globals.css";
+import "../globals.css";
 import { getDictionary } from "@/lib/dictionary";
 import SmoothScroll from "@/components/providers/SmoothScroll";
 import Link from "next/link";

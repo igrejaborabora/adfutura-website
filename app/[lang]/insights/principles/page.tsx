@@ -16,19 +16,19 @@ export default async function PrinciplesPage({ params }: { params: Promise<{ lan
             {principles.points.map((point: string, i: number) => (
               <div key={i} style={{ display: 'flex', gap: '2rem', alignItems: 'flex-start' }}>
                 <span style={{ fontSize: '1.5rem', fontWeight: '800', color: 'var(--accent-cyan)', display: 'block', minWidth: '40px' }}>
-                  {i+1}
-                </div>
+                  {i + 1}
+                </span>
                 <p style={{ fontSize: '1.75rem', fontWeight: '400', lineHeight: '1.3' }}>
                   {point}
                 </p>
               </div>
             ))}
-        </div>
+          </div>
 
-        <div style={{ marginTop: '6rem', opacity: 0.5, fontSize: '0.9rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-          Tudo o que fazemos deriva destes princípios.
+          <div style={{ marginTop: '6rem', opacity: 0.5, fontSize: '0.9rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+            Tudo o que fazemos deriva destes princípios.
+          </div>
         </div>
-    </div>
       </section >
     </div >
   );

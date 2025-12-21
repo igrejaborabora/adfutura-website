@@ -1,0 +1,231 @@
+{
+    "nav": {
+        "services": "Serviços",
+        "work": "Trabalho",
+        "insights": "Insights",
+        "contact": "Contacto"
+    },
+    "footer": {
+        "privacy": "Privacidade",
+        "terms": "Termos",
+        "linkedin": "LinkedIn",
+        "signature": {
+            "direction": "Direção, definida.",
+            "capabilities": "Capacidades, construídas.",
+            "advantage": "Vantagem, traduzida em escala."
+        }
+    },
+    "home": {
+        "hero": {
+            "title": "Intelligence for the AI Age",
+            "subtitle": "A IA está a transformar a inteligência em infraestrutura.",
+            "description": "A vantagem competitiva define-se, cada vez mais, pela forma como as organizações desenham decisões, operacionalizam inteligência e escalam coerência.\nOs líderes precisam de sistemas que convertam inteligência em direção — com rapidez, repetibilidade e escala.",
+            "cta_services": "Explorar Serviços",
+            "cta_work": "Ver Trabalho"
+        },
+        "problem": {
+            "title": "O PROBLEMA",
+            "subtitle": "Numa economia de IA, a inteligência está distribuída por ferramentas, equipas, modelos e fluxos de trabalho.",
+            "body": "As decisões acontecem localmente. A execução acelera.\nA vantagem exige um sistema operativo que alinhe inteligência com autoridade, ação e escala."
+        },
+        "shift": {
+            "title": "A MUDANÇA",
+            "subtitle": "A vantagem nasce da capacidade de escalar a qualidade da decisão.",
+            "body_intro": "À medida que a complexidade, o volume e a velocidade aumentam, a performance depende de:",
+            "points": [
+                "autoridade clara de decisão",
+                "inteligência integrada na operação",
+                "governação que preserva a intenção",
+                "capacidades que se fortalecem com o uso"
+            ],
+            "footer": "O crescimento passa a depender de estrutura."
+        },
+        "position": {
+            "title": "O NOSSO POSICIONAMENTO",
+            "subtitle": "A adFutura é uma firma de inteligência estratégica.",
+            "body": "Trabalhamos com líderes que constroem organizações numa economia de IA, traduzindo analítica avançada e IA em direção, sistemas e vantagem sustentada.\nO nosso foco: crescimento que se sustenta à escala."
+        },
+        "different": {
+            "title": "O QUE NOS DIFERENCIA",
+            "subtitle": "Começamos pela direção. As ferramentas seguem.",
+            "intro": "Começamos por desenhar:",
+            "points": [
+                "autoridade de decisão",
+                "intenção estratégica",
+                "arquitetura de sistema para escala"
+            ],
+            "outro": "Depois construímos aquilo que a organização irá operar — de forma autónoma, sob pressão e ao longo do tempo."
+        },
+        "principles_preview": {
+            "title": "PRINCÍPIOS (LOCKED)",
+            "points": [
+                "Desenhamos antes de construir. Sempre.",
+                "O que criamos tem de funcionar sem nós.",
+                "A escala é assumida desde o primeiro dia.",
+                "Não separamos pensamento de execução.",
+                "A inteligência tem de gerar ação.",
+                "Tudo o que fazemos deriva destes princípios."
+            ],
+            "cta": "Explorar Insights"
+        },
+        "approach": {
+            "title": "A NOSSA ABORDAGEM",
+            "subtitle": "Da inteligência à capacidade escalável.",
+            "intro": "Um ciclo contínuo:",
+            "points": [
+                "Enquadrar direção",
+                "Desenhar arquitetura",
+                "Construir capacidades",
+                "Escalar coerência"
+            ],
+            "outro": "O resultado é uma organização que opera com clareza à medida que a complexidade aumenta."
+        },
+        "services_preview": {
+            "title": "ARQUITETURA DE SERVIÇOS",
+            "subtitle": "Quatro domínios integrados:",
+            "domains": [
+                "Advisory",
+                "Plataformas",
+                "Inovação",
+                "Transformação"
+            ],
+            "body": "Um sistema — desenhado para passar de direção → construção → escala.",
+            "cta": "Explorar Serviços"
+        },
+        "work_preview": {
+            "title": "PROVA DE MAGNITUDE",
+            "body": "Mostramos escala, não volume.\nUm conjunto reduzido de engagements emblemáticos — cada um uma mudança estrutural, desenhada para durar.",
+            "cta": "Ver Trabalho"
+        },
+        "invitation": {
+            "title": "O CONVITE",
+            "subtitle": "Uma conversa estratégica.",
+            "intro": "Começamos por analisar:",
+            "points": [
+                "onde existe inteligência",
+                "onde as decisões têm maior alavancagem",
+                "onde a escala cria fricção"
+            ],
+            "outro": "A partir daí, desenhamos a arquitetura do engagement.",
+            "cta": "Contacto"
+        }
+    },
+    "services": {
+        "landing": {
+            "title": "SERVIÇOS",
+            "subtitle": "ARQUITETURA DE SERVIÇOS",
+            "domains": [
+                "Advisory",
+                "Plataformas",
+                "Inovação",
+                "Transformação"
+            ],
+            "body": "Um sistema — desenhado para passar de direção → construção → escala."
+        },
+        "advisory": {
+            "title": "ADVISORY",
+            "subtitle": "Direção Estratégica",
+            "intro": "Ajudamos líderes a definir:",
+            "points": [
+                "onde as decisões críticas são detidas",
+                "que inteligência deve orientar essas decisões",
+                "que governação torna o crescimento seguro e escalável"
+            ],
+            "includes": [
+                "Estratégia e ambição de IA",
+                "Governação da decisão",
+                "Desenho do modelo operativo",
+                "Advisory a executivos e conselhos"
+            ],
+            "cta": "Agendar conversa — Advisory"
+        },
+        "platforms": {
+            "title": "PLATAFORMAS",
+            "subtitle": "Estruturar Inteligência",
+            "intro": "Desenhamos e construímos plataformas que tornam a inteligência operável:",
+            "points": [
+                "arquiteturas de decisão",
+                "sistemas “insight-to-action”",
+                "sistemas de governação e performance",
+                "ferramentas proprietárias quando reforçam adoção e velocidade"
+            ],
+            "outro": "As plataformas permitem que a inteligência funcione de forma fiável à escala.",
+            "cta": "Explorar Plataformas"
+        },
+        "innovation": {
+            "title": "INOVAÇÃO",
+            "subtitle": "Construir Capacidade Escalável",
+            "intro": "Construímos e validamos capacidades nativas de IA com critérios explícitos de escala:",
+            "points": [
+                "pilotos e provas de valor ligados a decisões",
+                "copilots e sistemas de decisão",
+                "inovação de produtos e serviços",
+                "experimentação rápida com thresholds de adoção"
+            ],
+            "outro": "A inovação prova o que merece escala.",
+            "cta": "Iniciar Inovação"
+        },
+        "transformation": {
+            "title": "TRANSFORMAÇÃO",
+            "subtitle": "Escalar com Controlo",
+            "intro": "Incorporamos o que funciona para que compense no tempo:",
+            "points": [
+                "governação dentro da operação",
+                "construção de capacidades e cadência operacional",
+                "loops de feedback que reforçam performance",
+                "alinhamento organizacional para escala"
+            ],
+            "outro": "O crescimento fortalece o sistema à medida que se expande.",
+            "cta": "Desenhar caminho de Transformação"
+        }
+    },
+    "work": {
+        "title": "TRABALHO",
+        "subtitle": "PROVA DE MAGNITUDE",
+        "body": "Mostramos escala, não volume.\nUm conjunto reduzido de engagements emblemáticos — cada um uma mudança estrutural, desenhada para durar.",
+        "placeholder": "FLAGSHIP EXAMPLE",
+        "cta": "Contacto"
+    },
+    "insights": {
+        "title": "INSIGHTS",
+        "body": "Tudo o que fazemos deriva destes princípios.",
+        "list": [
+            "Princípios (Locked)",
+            "The Strategic Monograph",
+            "Papers",
+            "Tools"
+        ]
+    },
+    "principles": {
+        "title": "PRINCÍPIOS (LOCKED)",
+        "points": [
+            "Desenhamos antes de construir. Sempre.",
+            "O que criamos tem de funcionar sem nós.",
+            "A escala é assumida desde o primeiro dia.",
+            "Não separamos pensamento de execução.",
+            "A inteligência tem de gerar ação.",
+            "Tudo o que fazemos deriva destes princípios."
+        ]
+    },
+    "contact": {
+        "title": "CONTACTO",
+        "invitation": {
+            "title": "O CONVITE",
+            "subtitle": "Uma conversa estratégica.",
+            "intro": "Começamos por analisar:",
+            "points": [
+                "onde existe inteligência",
+                "onde as decisões têm maior alavancagem",
+                "onde a escala cria fricção"
+            ],
+            "outro": "A partir daí, desenhamos a arquitetura do engagement."
+        },
+        "form": {
+            "name": "Nome",
+            "company": "Empresa",
+            "email": "Email",
+            "message": "Mensagem",
+            "submit": "Enviar"
+        }
+    }
+}

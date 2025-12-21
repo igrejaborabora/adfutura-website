@@ -1,0 +1,231 @@
+{
+    "nav": {
+        "services": "Services",
+        "work": "Work",
+        "insights": "Insights",
+        "contact": "Contact"
+    },
+    "footer": {
+        "privacy": "Privacy",
+        "terms": "Terms",
+        "linkedin": "LinkedIn",
+        "signature": {
+            "direction": "Direction, defined.",
+            "capabilities": "Capabilities, built.",
+            "advantage": "Advantage, translated into scale."
+        }
+    },
+    "home": {
+        "hero": {
+            "title": "Intelligence for the AI Age",
+            "subtitle": "AI is turning intelligence into infrastructure.",
+            "description": "Competitive advantage is increasingly defined by how organisations design decisions, operate intelligence, and scale coherence.\nLeaders need systems that convert intelligence into direction—fast, repeatably, at scale.",
+            "cta_services": "Explore Services",
+            "cta_work": "View Work"
+        },
+        "problem": {
+            "title": "THE PROBLEM",
+            "subtitle": "In an AI economy, intelligence sits across tools, teams, models, and workflows.",
+            "body": "Decisions happen locally. Execution accelerates.\nAdvantage requires an operating system that aligns intelligence with authority, action, and scale."
+        },
+        "shift": {
+            "title": "THE SHIFT",
+            "subtitle": "Advantage comes from the ability to scale decision quality.",
+            "body_intro": "As complexity, volume, and velocity rise, performance depends on:",
+            "points": [
+                "clear decision authority",
+                "intelligence embedded in operations",
+                "governance that preserves intent",
+                "capabilities that strengthen through use"
+            ],
+            "footer": "Growth depends on structure."
+        },
+        "position": {
+            "title": "OUR POSITION",
+            "subtitle": "adFutura is a strategic intelligence firm.",
+            "body": "We work with leaders building organisations in an AI economy, translating advanced analytics and AI into direction, systems, and sustained advantage.\nOur focus: growth that holds under scale."
+        },
+        "different": {
+            "title": "WHAT MAKES US DIFFERENT",
+            "subtitle": "We lead with direction. Tools follow.",
+            "intro": "We start by designing:",
+            "points": [
+                "decision authority",
+                "strategic intent",
+                "system architecture for scale"
+            ],
+            "outro": "Then we build what the organisation will run—independently, under pressure, over time."
+        },
+        "principles_preview": {
+            "title": "FIRST PRINCIPLES (LOCKED)",
+            "points": [
+                "We design before we build. Always.",
+                "What we create must operate without us.",
+                "Scale is assumed from the first day",
+                "We do not separate thinking from making.",
+                "Intelligence must result in action.",
+                "Everything we do derives from these constraints."
+            ],
+            "cta": "Explore Insights"
+        },
+        "approach": {
+            "title": "OUR APPROACH",
+            "subtitle": "From intelligence to scalable capability.",
+            "intro": "A continuous loop:",
+            "points": [
+                "Frame direction",
+                "Design architecture",
+                "Build capabilities",
+                "Scale coherence"
+            ],
+            "outro": "The output is an organisation that performs with clarity as complexity rises."
+        },
+        "services_preview": {
+            "title": "OUR SERVICE ARCHITECTURE",
+            "subtitle": "Four integrated domains:",
+            "domains": [
+                "Advisory",
+                "Platforms",
+                "Innovation",
+                "Transformation"
+            ],
+            "body": "One system—designed to move from direction → build → scale.",
+            "cta": "Explore Services"
+        },
+        "work_preview": {
+            "title": "PROOF OF MAGNITUDE",
+            "body": "We show scale, not volume.\nA small number of flagship engagements—each one a structural shift, designed to hold over time.",
+            "cta": "View Work"
+        },
+        "invitation": {
+            "title": "THE INVITATION",
+            "subtitle": "A strategic conversation.",
+            "intro": "We begin by examining:",
+            "points": [
+                "where intelligence exists",
+                "where decisions carry the highest leverage",
+                "where scale creates friction"
+            ],
+            "outro": "From there, we design the engagement architecture.",
+            "cta": "Contact"
+        }
+    },
+    "services": {
+        "landing": {
+            "title": "SERVICES",
+            "subtitle": "OUR SERVICE ARCHITECTURE",
+            "domains": [
+                "Advisory",
+                "Platforms",
+                "Innovation",
+                "Transformation"
+            ],
+            "body": "One system—designed to move from direction → build → scale."
+        },
+        "advisory": {
+            "title": "ADVISORY",
+            "subtitle": "Strategic Direction",
+            "intro": "We help leaders define:",
+            "points": [
+                "where critical decisions are owned",
+                "what intelligence must drive those decisions",
+                "what governance makes growth safe and scalable"
+            ],
+            "includes": [
+                "AI strategy and ambition",
+                "Decision governance",
+                "Operating model design",
+                "Executive and board advisory"
+            ],
+            "cta": "Discuss Advisory"
+        },
+        "platforms": {
+            "title": "PLATFORMS",
+            "subtitle": "Structuring Intelligence",
+            "intro": "We design and build platforms that make intelligence operable:",
+            "points": [
+                "decision architectures",
+                "insight-to-action systems",
+                "governance and performance systems",
+                "proprietary tools where they strengthen adoption and speed"
+            ],
+            "outro": "Platforms enable intelligence to perform reliably at scale.",
+            "cta": "Explore Platforms"
+        },
+        "innovation": {
+            "title": "INNOVATION",
+            "subtitle": "Building Scalable Capability",
+            "intro": "We build and validate AI-native capabilities with explicit scaling criteria:",
+            "points": [
+                "pilots and proofs of value tied to decisions",
+                "copilots and decision systems",
+                "product and service innovation",
+                "rapid experimentation with adoption thresholds"
+            ],
+            "outro": "Innovation proves what deserves scale.",
+            "cta": "Start Innovation"
+        },
+        "transformation": {
+            "title": "TRANSFORMATION",
+            "subtitle": "Scaling with Control",
+            "intro": "We embed what works so it compounds:",
+            "points": [
+                "governance structures inside operations",
+                "capability building and operating cadence",
+                "feedback loops that strengthen performance",
+                "organisational alignment for scale"
+            ],
+            "outro": "Growth strengthens the system as it expands.",
+            "cta": "Plan Transformation"
+        }
+    },
+    "work": {
+        "title": "WORK",
+        "subtitle": "PROOF OF MAGNITUDE",
+        "body": "We show scale, not volume.\nA small number of flagship engagements—each one a structural shift, designed to hold over time.",
+        "placeholder": "FLAGSHIP EXAMPLE",
+        "cta": "Contact"
+    },
+    "insights": {
+        "title": "INSIGHTS",
+        "body": "Everything we do derives from these constraints.",
+        "list": [
+            "First Principles (Locked)",
+            "The Strategic Monograph",
+            "Papers",
+            "Tools"
+        ]
+    },
+    "principles": {
+        "title": "FIRST PRINCIPLES (LOCKED)",
+        "points": [
+            "We design before we build. Always.",
+            "What we create must operate without us.",
+            "Scale is assumed from the first day",
+            "We do not separate thinking from making.",
+            "Intelligence must result in action.",
+            "Everything we do derives from these constraints."
+        ]
+    },
+    "contact": {
+        "title": "CONTACT",
+        "invitation": {
+            "title": "THE INVITATION",
+            "subtitle": "A strategic conversation.",
+            "intro": "We begin by examining:",
+            "points": [
+                "where intelligence exists",
+                "where decisions carry the highest leverage",
+                "where scale creates friction"
+            ],
+            "outro": "From there, we design the engagement architecture."
+        },
+        "form": {
+            "name": "Name",
+            "company": "Company",
+            "email": "Email",
+            "message": "Message",
+            "submit": "Send"
+        }
+    }
+}

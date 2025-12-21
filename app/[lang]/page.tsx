@@ -101,7 +101,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
               </span>
             ))}
           </div>
-          <MagneticButton href={`/${lang}/contact`} className="btn btn-primary" style={{ transform: 'scale(1.2)' }}>
+          <MagneticButton href={`/${lang}/contact`} className="btn btn-primary">
             {home.invitation.cta}
           </MagneticButton>
         </div>

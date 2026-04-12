@@ -5,6 +5,7 @@
   --accent-blue: #0066FF;
   /* Ad Blue from image */
   --accent-blue-dim: rgba(0, 102, 255, 0.1);
+  --accent-cyan: #00C8FF;
   --glass-bg: rgba(255, 255, 255, 0.05);
   --glass-border: rgba(255, 255, 255, 0.1);
   --font-main: 'Inter', sans-serif;

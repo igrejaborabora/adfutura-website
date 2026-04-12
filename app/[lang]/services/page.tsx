@@ -45,7 +45,7 @@ export default async function ServicesPage({ params }: { params: Promise<{ lang:
                         <div style={{ padding: '3rem', borderLeft: '1px solid var(--glass-border)', background: 'rgba(255,255,255,0.01)' }}>
                             <h4 style={{ marginBottom: '1.5rem', textTransform: 'uppercase', fontSize: '0.8rem', opacity: 0.6 }}>Includes</h4>
                             <ul style={{ display: 'grid', gap: '1.5rem' }}>
-                                {services.advisory.includes.map((item: string, i: number) => (
+                                {services.advisory.points.map((item: string, i: number) => (
                                     <li key={i} style={{ fontSize: '1.1rem', fontWeight: '500' }}>{item}</li>
                                 ))}
                             </ul>

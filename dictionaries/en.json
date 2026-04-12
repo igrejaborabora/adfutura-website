@@ -127,7 +127,7 @@
             "title": "ADVISORY",
             "subtitle": "Strategic Direction",
             "intro": "We help leaders define: where critical decisions are owned, what intelligence must drive those decisions, what governance makes growth safe and scalable.",
-            "includes": [
+            "points": [
                 "AI strategy and ambition",
                 "Decision governance",
                 "Operating model design",

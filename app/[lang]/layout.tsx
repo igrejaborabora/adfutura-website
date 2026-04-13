@@ -59,8 +59,8 @@ export default async function RootLayout({
         <DynamicBackground />
         <SmoothScroll>
           {/* Navbar */}
-          <nav className="fixed top-0 left-0 w-full h-[90px] z-[999] glass-nav transition-all duration-300">
-            <div className="container mx-auto px-6 md:px-12 h-full flex items-center justify-between">
+          <nav className="fixed top-6 left-1/2 -translate-x-1/2 w-[calc(100%-3rem)] max-w-6xl h-[70px] rounded-full z-[999] glass-nav-pill transition-all duration-300">
+            <div className="px-6 md:px-10 h-full flex items-center justify-between">
               
               {/* Logo */}
               <Link href={`/${lang}`} className="hover:opacity-80 transition-opacity">
@@ -85,7 +85,7 @@ export default async function RootLayout({
             </div>
           </nav>
           
-          <main className="min-h-screen pt-[90px]">
+          <main className="min-h-screen pt-32">
             {children}
           </main>
           

@@ -40,7 +40,7 @@ export default async function ServicesPage({ params }: { params: Promise<{ lang:
                             <h2 className="text-4xl font-bold uppercase tracking-tight mb-8">{services.advisory.subtitle}</h2>
                             <p className="text-xl text-text-dim leading-relaxed mb-12">{services.advisory.intro}</p>
                             
-                            <Link href={`/${lang}/contact`} className="inline-block px-8 py-4 font-mono text-sm uppercase tracking-widest bg-white text-black font-bold hover:bg-transparent hover:text-white border border-white hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all duration-300">
+                            <Link href={`/${lang}/contact`} className="gradient-border-glow inline-block px-8 py-4 font-mono text-sm uppercase tracking-widest bg-white/10 text-white font-bold hover:bg-white/20 transition-all duration-300 rounded-xl">
                                 {services.advisory.cta}
                             </Link>
                         </div>
@@ -81,7 +81,7 @@ export default async function ServicesPage({ params }: { params: Promise<{ lang:
                                 ))}
                             </ul>
                             <p className="text-xl italic text-white/80 mb-12 border-l-4 border-cyan pl-6 py-2">{services.platforms.outro}</p>
-                            <Link href={`/${lang}/contact`} className="inline-block px-8 py-4 font-mono text-sm uppercase tracking-widest bg-transparent text-white border border-white/20 hover:border-cyan hover:text-cyan transition-all duration-300">
+                            <Link href={`/${lang}/contact`} className="inline-block px-8 py-4 font-mono text-sm uppercase tracking-widest bg-transparent text-white border border-white/20 hover:border-cyan hover:text-cyan transition-all duration-300 rounded-xl">
                                 {services.platforms.cta}
                             </Link>
                         </div>
@@ -109,7 +109,7 @@ export default async function ServicesPage({ params }: { params: Promise<{ lang:
                         
                         <div className="flex flex-col md:flex-row items-center justify-between gap-8 border-t border-white/10 pt-16">
                             <p className="text-2xl font-bold text-cyan">{services.innovation.outro}</p>
-                            <Link href={`/${lang}/contact`} className="inline-block px-10 py-5 font-mono text-sm uppercase tracking-widest bg-white text-black font-bold hover:bg-transparent hover:text-white border border-white hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all duration-300">
+                            <Link href={`/${lang}/contact`} className="gradient-border-glow inline-block px-10 py-5 font-mono text-sm uppercase tracking-widest bg-white/10 text-white font-bold hover:bg-white/20 transition-all duration-300 rounded-xl">
                                 {services.innovation.cta}
                             </Link>
                         </div>
@@ -135,7 +135,7 @@ export default async function ServicesPage({ params }: { params: Promise<{ lang:
                         </div>
                         
                         <p className="text-2xl text-cyan font-medium mb-12">{services.transformation.outro}</p>
-                        <Link href={`/${lang}/contact`} className="inline-block px-8 py-4 font-mono text-sm uppercase tracking-widest bg-transparent text-white border border-white/20 hover:border-cyan hover:text-cyan transition-all duration-300">
+                        <Link href={`/${lang}/contact`} className="inline-block px-8 py-4 font-mono text-sm uppercase tracking-widest bg-transparent text-white border border-white/20 hover:border-cyan hover:text-cyan transition-all duration-300 rounded-xl">
                             {services.transformation.cta}
                         </Link>
                     </div>

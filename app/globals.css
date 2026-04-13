@@ -22,12 +22,40 @@
 }
 
 @layer utilities {
+  /* Frosted Glass Cards Premium */
   .glass-panel {
-    @apply bg-white/5 backdrop-blur-xl border border-white/10 shadow-glass;
+    @apply bg-white/[0.03] backdrop-blur-[14px] border-t border-l border-white/10 border-b border-r border-white/5 shadow-[0_8px_32px_rgba(0,0,0,0.4)];
   }
   
-  .glass-nav {
-    @apply bg-black/40 backdrop-blur-2xl border-b border-white/5;
+  /* Floating Glass Nav Pill */
+  .glass-nav-pill {
+    @apply bg-black/40 backdrop-blur-[16px] border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)];
+  }
+
+  /* Gradient Border Glow (mask-composite: exclude) */
+  .gradient-border-glow {
+    @apply relative bg-transparent;
+  }
+  .gradient-border-glow::before {
+    content: "";
+    @apply absolute inset-0 rounded-inherit p-[1px] pointer-events-none;
+    background: linear-gradient(120deg, rgba(0,200,255,0.8), transparent 40%, transparent 60%, rgba(30,111,217,0.8));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+
+  /* Liquid Glass Refraction Container */
+  .liquid-glass {
+    @apply relative overflow-hidden bg-white/[0.02] backdrop-blur-[20px] border border-white/10 shadow-2xl;
+  }
+  .liquid-glass-blob {
+    @apply absolute w-[150%] h-[150%] top-[-25%] left-[-25%] z-[-1] opacity-60 mix-blend-screen;
+    background: conic-gradient(from 0deg, transparent 0deg, rgba(0, 200, 255, 0.4) 90deg, rgba(30, 111, 217, 0.4) 180deg, transparent 270deg);
+    animation: rotateBlob 15s linear infinite;
+  }
+  @keyframes rotateBlob {
+    100% { transform: rotate(360deg); }
   }
 
   /* Efeito de cápsula de vidro com reflexo (similar ao texto "AI deployment" da referência) */

@@ -26,10 +26,10 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
             {home.hero.subheadline}
           </p>
           <div className="flex flex-col sm:flex-row gap-6">
-            <MagneticButton href={`/${lang}/services`} className="px-10 py-4 font-mono text-sm uppercase tracking-widest bg-white text-black font-bold hover:bg-transparent hover:text-white border border-white hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all duration-300 inline-flex items-center justify-center">
+            <MagneticButton href={`/${lang}/services`} className="gradient-border-glow px-10 py-4 font-mono text-sm uppercase tracking-widest bg-white/10 text-white font-bold hover:bg-white/20 transition-all duration-300 inline-flex items-center justify-center rounded-2xl">
               {home.hero.cta_primary}
             </MagneticButton>
-            <MagneticButton href={`/${lang}/work`} className="px-10 py-4 font-mono text-sm uppercase tracking-widest bg-transparent text-text-dim border border-white/10 hover:border-cyan hover:text-cyan hover:bg-cyan/10 transition-all duration-300 inline-flex items-center justify-center">
+            <MagneticButton href={`/${lang}/work`} className="px-10 py-4 font-mono text-sm uppercase tracking-widest bg-transparent text-text-dim border border-white/10 hover:border-cyan hover:text-cyan hover:bg-cyan/10 transition-all duration-300 inline-flex items-center justify-center rounded-2xl">
               {home.hero.cta_secondary}
             </MagneticButton>
           </div>
@@ -69,12 +69,14 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
               <p className="mt-8 text-xl text-text-dim leading-relaxed">{home.shift.intro}</p>
               <p className="mt-8 text-xl text-white font-medium">{home.shift.conclusion}</p>
             </div>
-            <div className="p-12 lg:py-24 lg:pl-16 flex flex-col justify-center gap-8">
+            <div className="p-12 lg:py-24 lg:pl-16 flex flex-col justify-center gap-6">
               {home.shift.points.map((point: string, i: number) => (
-                <div key={i} className="glass-panel p-8 border-l-4 border-l-blue relative overflow-hidden group hover:border-cyan transition-colors">
+                <div key={i} className="glass-panel p-8 rounded-xl relative overflow-hidden group hover:border-cyan/50 transition-all duration-300 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)]">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-cyan/10 blur-[50px] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <span className="font-mono text-blue text-sm mb-4 block uppercase tracking-widest group-hover:text-cyan transition-colors">DATA POINT 0{i + 1}</span>
-                  <p className="text-xl font-medium relative z-10">{point}</p>
+                  <div className="flex items-start gap-6 relative z-10">
+                    <span className="font-mono text-cyan text-4xl leading-none opacity-50 font-black">0{i + 1}</span>
+                    <p className="text-xl font-medium pt-1">{point}</p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -120,29 +122,30 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
         </div>
       </section>
 
-      {/* Approach */}
-      <section className="py-32 bg-black/60 backdrop-blur-md">
+      {/* Approach - Layered Depth */}
+      <section className="py-32 bg-black/60 backdrop-blur-md overflow-hidden">
         <div className="container mx-auto px-6 md:px-12">
           <div className="flex items-center gap-4 mb-12 font-mono text-xs text-cyan tracking-widest uppercase">
             <span className="w-2 h-2 bg-cyan shadow-[0_0_10px_var(--accent-cyan)] block" />
             METHODOLOGY
           </div>
-          <h2 className="text-4xl md:text-6xl font-bold tracking-tighter uppercase mb-16">{home.approach.title}</h2>
+          <h2 className="text-4xl md:text-6xl font-bold tracking-tighter uppercase mb-24">{home.approach.title}</h2>
           
-          <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+          <div className="flex flex-col md:flex-row justify-center items-center md:items-stretch gap-0 pl-0 md:pl-10">
             {home.approach.loop.map((step: string, i: number) => (
-              <div key={i} className="flex-1 w-full text-center flex flex-col items-center">
-                <div className="w-full max-w-[200px] aspect-square rounded-full border border-blue glass-panel flex items-center justify-center mb-6">
-                  <span className="text-xl font-medium px-4">{step}</span>
-                </div>
-                {i < home.approach.loop.length - 1 && (
-                  <div className="text-3xl text-text-dim md:-rotate-90 mt-4 md:mt-0">↓</div>
-                )}
+              <div 
+                key={i} 
+                className="glass-panel p-8 w-full md:w-72 rounded-2xl relative -mt-4 md:mt-0 md:-ml-12 first:mt-0 first:ml-0 transition-all duration-500 hover:-translate-y-4 hover:shadow-[0_20px_40px_rgba(0,0,0,0.8)] shadow-[0_10px_30px_rgba(0,0,0,0.5)] group"
+                style={{ zIndex: i + 10 }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+                <span className="text-cyan font-mono text-sm block mb-12 font-bold tracking-widest">0{i+1}</span>
+                <h3 className="text-2xl font-bold uppercase tracking-tight relative z-10">{step}</h3>
               </div>
             ))}
           </div>
           
-          <p className="text-center mt-20 text-2xl font-medium">{home.approach.output}</p>
+          <p className="text-center mt-24 text-2xl font-medium">{home.approach.output}</p>
         </div>
       </section>
 
@@ -198,28 +201,35 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
           </div>
           <h2 className="text-4xl md:text-6xl font-bold tracking-tighter uppercase mb-8">{home.work_preview.title}</h2>
           <p className="text-2xl text-text-dim max-w-3xl mx-auto mb-16 leading-relaxed">{home.work_preview.body}</p>
-          <MagneticButton href={`/${lang}/work`} className="px-10 py-4 font-mono text-sm uppercase tracking-widest bg-white text-black font-bold hover:bg-transparent hover:text-white border border-white hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all duration-300 inline-flex items-center justify-center">
+          <MagneticButton href={`/${lang}/work`} className="gradient-border-glow px-10 py-4 font-mono text-sm uppercase tracking-widest bg-white/10 text-white font-bold hover:bg-white/20 transition-all duration-300 inline-flex items-center justify-center rounded-2xl">
             {home.work_preview.cta}
           </MagneticButton>
         </div>
       </section>
 
-      {/* Invitation */}
-      <section className="py-40 text-center relative overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[1000px] aspect-square bg-[radial-gradient(circle,rgba(0,102,255,0.15)_0%,transparent_70%)] z-[-1]" />
-        
-        <div className="container mx-auto px-6 md:px-12">
-          <h2 className="text-4xl md:text-6xl lg:text-[5rem] font-black tracking-tighter uppercase mb-16 leading-tight">
+      {/* The Invitation - Liquid Glass Refraction */}
+      <section className="py-40 text-center relative flex justify-center items-center px-4">
+        {/* Animated Orbs behind the Glass Container */}
+        <div className="absolute inset-0 flex justify-center items-center opacity-70">
+          <div className="w-[600px] h-[600px] bg-cyan/20 blur-[100px] rounded-full absolute mix-blend-screen animate-[spin_10s_linear_infinite]" />
+          <div className="w-[500px] h-[500px] bg-blue/30 blur-[120px] rounded-full absolute mix-blend-screen animate-[spin_15s_linear_infinite_reverse]" />
+        </div>
+
+        {/* Liquid Glass Container */}
+        <div className="liquid-glass w-full max-w-5xl rounded-[3rem] p-16 md:p-24 z-10 flex flex-col items-center">
+          <div className="liquid-glass-blob" />
+          
+          <h2 className="text-4xl md:text-6xl lg:text-[5rem] font-black tracking-tighter uppercase mb-12 leading-tight relative z-10">
             <TextReveal>{home.invitation.subtitle}</TextReveal>
           </h2>
-          <div className="flex flex-wrap justify-center gap-6 mb-16">
+          <div className="flex flex-wrap justify-center gap-6 mb-16 relative z-10">
             {home.invitation.points.map((point: string, i: number) => (
-              <span key={i} className="font-mono text-cyan border border-cyan/50 bg-cyan/5 px-4 py-2 text-sm tracking-widest uppercase">
+              <span key={i} className="font-mono text-white/80 border border-white/20 bg-white/5 backdrop-blur-md rounded-full px-6 py-3 text-sm tracking-widest uppercase">
                 {point}
               </span>
             ))}
           </div>
-          <MagneticButton href={`/${lang}/contact`} className="px-12 py-5 font-mono text-base uppercase tracking-widest bg-white text-black font-bold hover:bg-transparent hover:text-white border border-white hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] transition-all duration-300 inline-flex items-center justify-center">
+          <MagneticButton href={`/${lang}/contact`} className="gradient-border-glow px-12 py-5 font-mono text-base uppercase tracking-widest bg-white/10 text-white font-bold hover:bg-white/20 transition-all duration-300 inline-flex items-center justify-center rounded-full z-10">
             {home.invitation.cta}
           </MagneticButton>
         </div>

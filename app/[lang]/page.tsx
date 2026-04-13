@@ -15,8 +15,8 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
       {/* Hero Section */}
       <section className="relative z-10 pt-20 pb-32">
         <div className="container mx-auto px-6 md:px-12 relative z-10">
-          <div className="flex items-center gap-4 mb-12 font-mono text-xs text-cyan tracking-widest uppercase">
-            <span className="w-2 h-2 bg-cyan shadow-[0_0_10px_var(--accent-cyan)] block" />
+          <div className="flex items-center gap-4 mb-12 font-mono text-xs text-cyan tracking-widest uppercase glass-pill w-fit mx-0">
+            <span className="w-2 h-2 bg-cyan shadow-[0_0_10px_var(--accent-cyan)] block rounded-full" />
             adFutura / Protocol v2.0
           </div>
           <h1 className="text-5xl md:text-7xl lg:text-[7rem] font-extrabold leading-[0.9] tracking-tighter uppercase mb-8">
@@ -71,9 +71,10 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
             </div>
             <div className="p-12 lg:py-24 lg:pl-16 flex flex-col justify-center gap-8">
               {home.shift.points.map((point: string, i: number) => (
-                <div key={i} className="glass-panel p-8 border-l-4 border-l-blue">
-                  <span className="font-mono text-blue text-sm mb-4 block uppercase tracking-widest">DATA POINT 0{i + 1}</span>
-                  <p className="text-xl font-medium">{point}</p>
+                <div key={i} className="glass-panel p-8 border-l-4 border-l-blue relative overflow-hidden group hover:border-cyan transition-colors">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-cyan/10 blur-[50px] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <span className="font-mono text-blue text-sm mb-4 block uppercase tracking-widest group-hover:text-cyan transition-colors">DATA POINT 0{i + 1}</span>
+                  <p className="text-xl font-medium relative z-10">{point}</p>
                 </div>
               ))}
             </div>

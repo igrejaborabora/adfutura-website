@@ -1,5 +1,6 @@
 import { getDictionary } from "@/lib/dictionary";
 import Link from "next/link";
+import TextReveal from "@/components/ui/TextReveal";
 
 export default async function ServicesPage({ params }: { params: Promise<{ lang: string }> }) {
     const { lang } = await params;
@@ -7,17 +8,22 @@ export default async function ServicesPage({ params }: { params: Promise<{ lang:
     const { services } = dict;
 
     return (
-        <div className="animate-in">
-            <section style={{ textAlign: 'center', background: 'linear-gradient(to bottom, var(--bg-color), rgba(0, 112, 243, 0.05))' }}>
-                <div className="container">
-                    <span className="section-label">{services.landing.title}</span>
-                    <h1 style={{ marginBottom: '2rem' }}>{services.landing.subtitle}</h1>
-                    <p style={{ maxWidth: '700px', margin: '0 auto 3rem', fontSize: '1.25rem', color: 'var(--text-dim)' }}>
+        <div className="pb-32">
+            <section className="pt-20 pb-32 text-center bg-gradient-to-b from-transparent to-blue/5">
+                <div className="container mx-auto px-6 md:px-12">
+                    <div className="flex items-center justify-center gap-4 mb-8 font-mono text-xs text-cyan tracking-widest uppercase">
+                        <span className="w-2 h-2 bg-cyan shadow-[0_0_10px_var(--accent-cyan)] block" />
+                        {services.landing.title}
+                    </div>
+                    <h1 className="text-4xl md:text-6xl lg:text-[5rem] font-black tracking-tighter uppercase mb-12">
+                        <TextReveal>{services.landing.subtitle}</TextReveal>
+                    </h1>
+                    <p className="max-w-3xl mx-auto mb-16 text-xl md:text-2xl text-text-dim leading-relaxed">
                         {services.landing.body}
                     </p>
-                    <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem' }}>
+                    <div className="flex flex-wrap justify-center gap-4 md:gap-8">
                         {services.landing.domains.map((domain: string, i: number) => (
-                            <div key={i} style={{ padding: '0.5rem 1.5rem', border: '1px solid var(--accent-blue)', borderRadius: '20px', fontSize: '1rem' }}>
+                            <div key={i} className="px-6 py-3 border border-blue/50 rounded-full font-mono text-sm tracking-widest uppercase bg-blue/5 text-blue">
                                 {domain}
                             </div>
                         ))}
@@ -26,27 +32,26 @@ export default async function ServicesPage({ params }: { params: Promise<{ lang:
             </section>
 
             {/* Advisory */}
-            <section id="advisory" className="glass">
-                <div className="container">
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem' }}>
-                        <div>
-                            <span className="section-label">{services.advisory.title}</span>
-                            <h2>{services.advisory.subtitle}</h2>
-                            <p style={{ fontSize: '1.2rem', marginBottom: '2rem' }}>{services.advisory.intro}</p>
-                            <ul style={{ display: 'grid', gap: '1rem', marginBottom: '3rem' }}>
-                                {services.advisory.points.map((p: string, i: number) => (
-                                    <li key={i} style={{ display: 'flex', gap: '1rem', color: 'var(--text-dim)' }}>
-                                        <span style={{ color: 'var(--accent-cyan)' }}>•</span> {p}
-                                    </li>
-                                ))}
-                            </ul>
-                            <Link href={`/${lang}/contact`} className="btn btn-primary">{services.advisory.cta}</Link>
+            <section id="advisory" className="py-32">
+                <div className="container mx-auto px-6 md:px-12">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 glass-panel overflow-hidden rounded-2xl">
+                        <div className="p-12 lg:p-16">
+                            <span className="font-mono text-cyan text-sm tracking-widest uppercase block mb-4">{services.advisory.title}</span>
+                            <h2 className="text-4xl font-bold uppercase tracking-tight mb-8">{services.advisory.subtitle}</h2>
+                            <p className="text-xl text-text-dim leading-relaxed mb-12">{services.advisory.intro}</p>
+                            
+                            <Link href={`/${lang}/contact`} className="inline-block px-8 py-4 font-mono text-sm uppercase tracking-widest bg-white text-black font-bold hover:bg-transparent hover:text-white border border-white hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all duration-300">
+                                {services.advisory.cta}
+                            </Link>
                         </div>
-                        <div style={{ padding: '3rem', borderLeft: '1px solid var(--glass-border)', background: 'rgba(255,255,255,0.01)' }}>
-                            <h4 style={{ marginBottom: '1.5rem', textTransform: 'uppercase', fontSize: '0.8rem', opacity: 0.6 }}>Includes</h4>
-                            <ul style={{ display: 'grid', gap: '1.5rem' }}>
+                        <div className="p-12 lg:p-16 bg-white/5 border-t lg:border-t-0 lg:border-l border-white/10 flex flex-col justify-center">
+                            <h4 className="mb-8 font-mono text-xs uppercase tracking-widest text-text-dim">Includes</h4>
+                            <ul className="grid gap-6">
                                 {services.advisory.points.map((item: string, i: number) => (
-                                    <li key={i} style={{ fontSize: '1.1rem', fontWeight: '500' }}>{item}</li>
+                                    <li key={i} className="flex gap-4 items-start">
+                                        <span className="text-cyan text-xl leading-none mt-1">→</span>
+                                        <span className="text-xl font-medium">{item}</span>
+                                    </li>
                                 ))}
                             </ul>
                         </div>
@@ -55,69 +60,84 @@ export default async function ServicesPage({ params }: { params: Promise<{ lang:
             </section>
 
             {/* Platforms */}
-            <section id="platforms">
-                <div className="container">
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', direction: 'rtl' }}>
-                        <div style={{ direction: 'ltr' }}>
-                            <span className="section-label">{services.platforms.title}</span>
-                            <h2>{services.platforms.subtitle}</h2>
-                            <p style={{ fontSize: '1.2rem', marginBottom: '2rem' }}>{services.platforms.intro}</p>
-                            <ul style={{ display: 'grid', gap: '1rem', marginBottom: '3rem' }}>
+            <section id="platforms" className="py-32 relative">
+                <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-blue/10 rounded-full blur-[120px] mix-blend-screen z-[-1] -translate-y-1/2" />
+                <div className="container mx-auto px-6 md:px-12">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+                        <div className="order-2 lg:order-1 glass-panel aspect-square md:aspect-video lg:aspect-square flex items-center justify-center p-12 rounded-2xl relative overflow-hidden border-cyan/20">
+                            <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(0,200,255,0.05)_50%,transparent_75%)] bg-[length:250%_250%,100%_100%] animate-[gradient_8s_linear_infinite]" />
+                            <span className="font-mono text-text-dim uppercase tracking-widest opacity-50 z-10 text-center">[ Platform Architecture Visualization ]</span>
+                        </div>
+                        <div className="order-1 lg:order-2">
+                            <span className="font-mono text-cyan text-sm tracking-widest uppercase block mb-4">{services.platforms.title}</span>
+                            <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight mb-8">{services.platforms.subtitle}</h2>
+                            <p className="text-xl text-text-dim leading-relaxed mb-12">{services.platforms.intro}</p>
+                            <ul className="grid gap-6 mb-12">
                                 {services.platforms.points.map((p: string, i: number) => (
-                                    <li key={i} style={{ display: 'flex', gap: '1rem', color: 'var(--text-dim)' }}>
-                                        <span style={{ color: 'var(--accent-blue)' }}>•</span> {p}
+                                    <li key={i} className="flex gap-4 items-start">
+                                        <span className="text-blue text-xl leading-none mt-1">●</span>
+                                        <span className="text-lg">{p}</span>
                                     </li>
                                 ))}
                             </ul>
-                            <p style={{ fontSize: '1.1rem', marginBottom: '2.5rem', fontStyle: 'italic' }}>{services.platforms.outro}</p>
-                            <Link href={`/${lang}/contact`} className="btn btn-outline">{services.platforms.cta}</Link>
-                        </div>
-                        <div style={{ direction: 'ltr', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                            <div style={{ width: '100%', aspectRatio: '16/9', background: 'var(--glass-bg)', border: '1px solid var(--glass-border)', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-dim)' }}>
-                                [ Platform Architecture Visualization ]
-                            </div>
+                            <p className="text-xl italic text-white/80 mb-12 border-l-4 border-cyan pl-6 py-2">{services.platforms.outro}</p>
+                            <Link href={`/${lang}/contact`} className="inline-block px-8 py-4 font-mono text-sm uppercase tracking-widest bg-transparent text-white border border-white/20 hover:border-cyan hover:text-cyan transition-all duration-300">
+                                {services.platforms.cta}
+                            </Link>
                         </div>
                     </div>
                 </div>
             </section>
 
             {/* Innovation */}
-            <section id="innovation" className="glass">
-                <div className="container">
-                    <span className="section-label">{services.innovation.title}</span>
-                    <h2>{services.innovation.subtitle}</h2>
-                    <p style={{ fontSize: '1.2rem', marginBottom: '3rem', maxWidth: '800px' }}>{services.innovation.intro}</p>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem', marginBottom: '4rem' }}>
-                        {services.innovation.points.map((p: string, i: number) => (
-                            <div key={i} style={{ padding: '2rem', border: '1px solid var(--glass-border)', borderRadius: '4px' }}>
-                                <p>{p}</p>
-                            </div>
-                        ))}
-                    </div>
-                    <p style={{ fontSize: '1.5rem', fontWeight: '600', textAlign: 'center', margin: '4rem 0' }}>{services.innovation.outro}</p>
-                    <div style={{ textAlign: 'center' }}>
-                        <Link href={`/${lang}/contact`} className="btn btn-primary">{services.innovation.cta}</Link>
+            <section id="innovation" className="py-32">
+                <div className="container mx-auto px-6 md:px-12">
+                    <div className="glass-panel p-12 lg:p-24 rounded-2xl">
+                        <div className="max-w-3xl mb-16">
+                            <span className="font-mono text-cyan text-sm tracking-widest uppercase block mb-4">{services.innovation.title}</span>
+                            <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight mb-8">{services.innovation.subtitle}</h2>
+                            <p className="text-xl text-text-dim leading-relaxed">{services.innovation.intro}</p>
+                        </div>
+                        
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                            {services.innovation.points.map((p: string, i: number) => (
+                                <div key={i} className="p-8 border border-white/10 bg-white/5 hover:bg-white/10 transition-colors duration-300 rounded-xl">
+                                    <p className="text-lg">{p}</p>
+                                </div>
+                            ))}
+                        </div>
+                        
+                        <div className="flex flex-col md:flex-row items-center justify-between gap-8 border-t border-white/10 pt-16">
+                            <p className="text-2xl font-bold text-cyan">{services.innovation.outro}</p>
+                            <Link href={`/${lang}/contact`} className="inline-block px-10 py-5 font-mono text-sm uppercase tracking-widest bg-white text-black font-bold hover:bg-transparent hover:text-white border border-white hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all duration-300">
+                                {services.innovation.cta}
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </section>
 
             {/* Transformation */}
-            <section id="transformation">
-                <div className="container">
-                    <div style={{ maxWidth: '900px', margin: '0 auto' }}>
-                        <span className="section-label">{services.transformation.title}</span>
-                        <h2>{services.transformation.subtitle}</h2>
-                        <p style={{ fontSize: '1.2rem', marginBottom: '3rem' }}>{services.transformation.intro}</p>
-                        <div style={{ display: 'grid', gap: '1.5rem', marginBottom: '4rem' }}>
+            <section id="transformation" className="py-32">
+                <div className="container mx-auto px-6 md:px-12">
+                    <div className="max-w-4xl mx-auto">
+                        <span className="font-mono text-cyan text-sm tracking-widest uppercase block mb-4">{services.transformation.title}</span>
+                        <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight mb-8">{services.transformation.subtitle}</h2>
+                        <p className="text-xl text-text-dim leading-relaxed mb-16">{services.transformation.intro}</p>
+                        
+                        <div className="grid gap-6 mb-16">
                             {services.transformation.points.map((p: string, i: number) => (
-                                <div key={i} style={{ display: 'flex', gap: '2rem', alignItems: 'center', padding: '1.5rem', border: '1px solid var(--glass-border)' }}>
-                                    <span style={{ fontSize: '2rem', opacity: 0.2, fontWeight: '800' }}>0{i + 1}</span>
-                                    <p style={{ fontSize: '1.1rem' }}>{p}</p>
+                                <div key={i} className="flex gap-8 items-center p-8 border border-white/10 bg-black/40 backdrop-blur-md rounded-xl hover:border-cyan/50 transition-colors duration-300">
+                                    <span className="text-5xl font-black text-white/10">0{i + 1}</span>
+                                    <p className="text-xl">{p}</p>
                                 </div>
                             ))}
                         </div>
-                        <p style={{ fontSize: '1.25rem', color: 'var(--accent-cyan)', marginBottom: '3rem' }}>{services.transformation.outro}</p>
-                        <Link href={`/${lang}/contact`} className="btn btn-outline">{services.transformation.cta}</Link>
+                        
+                        <p className="text-2xl text-cyan font-medium mb-12">{services.transformation.outro}</p>
+                        <Link href={`/${lang}/contact`} className="inline-block px-8 py-4 font-mono text-sm uppercase tracking-widest bg-transparent text-white border border-white/20 hover:border-cyan hover:text-cyan transition-all duration-300">
+                            {services.transformation.cta}
+                        </Link>
                     </div>
                 </div>
             </section>

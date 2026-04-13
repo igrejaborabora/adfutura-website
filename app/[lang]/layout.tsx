@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "../globals.css";
 import { getDictionary } from "@/lib/dictionary";
 import SmoothScroll from "@/components/providers/SmoothScroll";
+import DynamicBackground from "@/components/ui/DynamicBackground";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -22,61 +23,91 @@ export default async function RootLayout({
 
   return (
     <html lang={lang}>
-      <body>
+      <body className="antialiased text-white selection:bg-cyan selection:text-black">
+        <DynamicBackground />
         <SmoothScroll>
-          <nav className="navbar glass">
-            <div className="container nav-content">
-              <Link href={`/${lang}`} className="logo">ad<span>Futura</span></Link>
-              <div className="nav-links">
-                <Link href={`/${lang}/services`} className="nav-link uppercase mono" style={{ fontSize: '0.8rem' }}>{nav.services}</Link>
-                <Link href={`/${lang}/work`} className="nav-link uppercase mono" style={{ fontSize: '0.8rem' }}>{nav.work}</Link>
-                <Link href={`/${lang}/insights`} className="nav-link uppercase mono" style={{ fontSize: '0.8rem' }}>{nav.insights}</Link>
-                <Link href={`/${lang}/contact`} className="nav-link uppercase mono" style={{ fontSize: '0.8rem' }}>{nav.contact}</Link>
+          {/* Navbar */}
+          <nav className="fixed top-0 left-0 w-full h-[90px] z-[999] glass-nav transition-all duration-300">
+            <div className="container mx-auto px-6 md:px-12 h-full flex items-center justify-between">
+              
+              {/* Logo */}
+              <Link href={`/${lang}`} className="font-sans font-black text-2xl tracking-tighter">
+                ad<span className="text-blue">Futura</span>
+              </Link>
+              
+              {/* Desktop Nav Links */}
+              <div className="hidden md:flex items-center gap-8">
+                <Link href={`/${lang}/services`} className="uppercase font-mono text-xs tracking-wider hover:text-cyan transition-colors">{nav.services}</Link>
+                <Link href={`/${lang}/work`} className="uppercase font-mono text-xs tracking-wider hover:text-cyan transition-colors">{nav.work}</Link>
+                <Link href={`/${lang}/insights`} className="uppercase font-mono text-xs tracking-wider hover:text-cyan transition-colors">{nav.insights}</Link>
+                <Link href={`/${lang}/contact`} className="uppercase font-mono text-xs tracking-wider hover:text-cyan transition-colors">{nav.contact}</Link>
               </div>
-              <div className="lang-switcher mono" style={{ fontSize: '0.75rem' }}>
-                <Link href={lang === 'en' ? '/en' : '/en'} style={{ opacity: lang === 'en' ? 1 : 0.4 }}>EN</Link>
-                <span style={{ margin: '0 0.5rem', opacity: 0.2 }}>/</span>
-                <Link href={lang === 'pt' ? '/pt' : '/pt'} style={{ opacity: lang === 'pt' ? 1 : 0.4 }}>PT</Link>
+              
+              {/* Lang Switcher */}
+              <div className="font-mono text-xs tracking-widest flex items-center">
+                <Link href="/en" className={`hover:text-cyan transition-opacity ${lang === 'en' ? 'opacity-100 text-white' : 'opacity-40'}`}>EN</Link>
+                <span className="mx-2 opacity-20">/</span>
+                <Link href="/pt" className={`hover:text-cyan transition-opacity ${lang === 'pt' ? 'opacity-100 text-white' : 'opacity-40'}`}>PT</Link>
               </div>
+              
             </div>
           </nav>
-          <main>{children}</main>
-          <footer className="glass" style={{ padding: '8rem 0', borderTop: '1px solid var(--glass-border)', marginTop: '8rem' }}>
-            <div className="container">
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '4rem', marginBottom: '4rem' }}>
-                <div>
-                  <div className="logo" style={{ marginBottom: '1.5rem' }}>adFutura</div>
-                  <p style={{ color: 'var(--text-dim)' }}>Intelligence for the AI Age</p>
+          
+          <main className="min-h-screen pt-[90px]">
+            {children}
+          </main>
+          
+          {/* Footer */}
+          <footer className="glass-panel border-x-0 border-b-0 py-20 mt-32">
+            <div className="container mx-auto px-6 md:px-12">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                
+                {/* Brand */}
+                <div className="lg:col-span-2">
+                  <div className="font-sans font-black text-2xl tracking-tighter mb-4">
+                    ad<span className="text-blue">Futura</span>
+                  </div>
+                  <p className="text-text-dim max-w-sm">Intelligence for the AI Age</p>
                 </div>
+                
+                {/* Navigation */}
                 <div>
-                  <h4 style={{ color: 'var(--accent-cyan)', fontSize: '0.8rem', textTransform: 'uppercase' }}>Navigation</h4>
-                  <div style={{ display: 'grid', gap: '0.75rem', marginTop: '1rem' }}>
-                    <Link href={`/${lang}/services`}>{nav.services}</Link>
-                    <Link href={`/${lang}/work`}>{nav.work}</Link>
-                    <Link href={`/${lang}/insights`}>{nav.insights}</Link>
-                    <Link href={`/${lang}/contact`}>{nav.contact}</Link>
+                  <h4 className="text-cyan text-xs font-bold uppercase tracking-widest mb-6">Navigation</h4>
+                  <div className="grid gap-4 text-sm font-medium">
+                    <Link href={`/${lang}/services`} className="hover:text-cyan transition-colors">{nav.services}</Link>
+                    <Link href={`/${lang}/work`} className="hover:text-cyan transition-colors">{nav.work}</Link>
+                    <Link href={`/${lang}/insights`} className="hover:text-cyan transition-colors">{nav.insights}</Link>
+                    <Link href={`/${lang}/contact`} className="hover:text-cyan transition-colors">{nav.contact}</Link>
                   </div>
                 </div>
+                
+                {/* Legal */}
                 <div>
-                  <h4 style={{ color: 'var(--accent-cyan)', fontSize: '0.8rem', textTransform: 'uppercase' }}>Links</h4>
-                  <div style={{ display: 'grid', gap: '0.75rem', marginTop: '1rem' }}>
-                    <Link href="/privacy">{footer.privacy}</Link>
-                    <Link href="/terms">{footer.terms}</Link>
-                    <a href="https://linkedin.com" target="_blank">{footer.linkedin}</a>
+                  <h4 className="text-cyan text-xs font-bold uppercase tracking-widest mb-6">Legal</h4>
+                  <div className="grid gap-4 text-sm font-medium">
+                    <Link href="/privacy" className="hover:text-cyan transition-colors">{footer.privacy}</Link>
+                    <Link href="/terms" className="hover:text-cyan transition-colors">{footer.terms}</Link>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-cyan transition-colors">{footer.linkedin}</a>
                   </div>
                 </div>
+                
               </div>
-              <div style={{ borderTop: '1px solid var(--glass-border)', paddingTop: '3rem', textAlign: 'center' }}>
-                <div style={{ fontSize: '1.1rem', fontWeight: '500', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                  <span>{footer.signature.direction}</span>
-                  <span>{footer.signature.capabilities}</span>
-                  <span style={{ color: 'var(--accent-cyan)' }}>{footer.signature.advantage}</span>
+              
+              {/* Bottom Signature */}
+              <div className="border-t border-white/10 pt-12 text-center md:text-left flex flex-col md:flex-row md:items-center justify-between gap-6">
+                <div className="flex flex-col md:flex-row gap-2 md:gap-6 text-lg md:text-xl font-medium tracking-tight">
+                  <span className="opacity-80">{footer.signature.direction}</span>
+                  <span className="opacity-80">{footer.signature.capabilities}</span>
+                  <span className="text-cyan">{footer.signature.advantage}</span>
+                </div>
+                <div className="text-xs text-text-dim font-mono tracking-widest uppercase">
+                  © {new Date().getFullYear()} adFutura
                 </div>
               </div>
             </div>
-          </footer >
-        </SmoothScroll >
-      </body >
-    </html >
+          </footer>
+        </SmoothScroll>
+      </body>
+    </html>
   );
 }

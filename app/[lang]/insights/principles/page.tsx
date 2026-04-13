@@ -6,30 +6,33 @@ export default async function PrinciplesPage({ params }: { params: Promise<{ lan
   const { principles } = dict;
 
   return (
-    <div className="animate-in">
-      <section style={{ textAlign: 'center', minHeight: '90vh', display: 'flex', alignItems: 'center' }}>
-        <div className="container" style={{ maxWidth: '800px' }}>
-          <span className="section-label">LOCKED</span>
-          <h1 style={{ marginBottom: '4rem', fontSize: '4rem' }}>{principles.title}</h1>
+    <div className="pb-32">
+      <section className="min-h-[90vh] pt-20 flex items-center">
+        <div className="container mx-auto px-6 md:px-12 max-w-4xl">
+          <div className="flex items-center gap-4 mb-12 font-mono text-xs text-cyan tracking-widest uppercase">
+            <span className="w-2 h-2 bg-cyan shadow-[0_0_10px_var(--accent-cyan)] block" />
+            LOCKED
+          </div>
+          <h1 className="text-5xl md:text-7xl font-black tracking-tighter uppercase mb-16">{principles.title}</h1>
 
-          <div style={{ display: 'grid', gap: '3rem', textAlign: 'left' }}>
+          <div className="grid gap-12">
             {principles.points.map((point: string, i: number) => (
-              <div key={i} style={{ display: 'flex', gap: '2rem', alignItems: 'flex-start' }}>
-                <span style={{ fontSize: '1.5rem', fontWeight: '800', color: 'var(--accent-cyan)', display: 'block', minWidth: '40px' }}>
+              <div key={i} className="flex gap-8 items-start">
+                <span className="text-2xl md:text-3xl font-black text-cyan min-w-[3rem] mt-1">
                   {i + 1}
                 </span>
-                <p style={{ fontSize: '1.75rem', fontWeight: '400', lineHeight: '1.3' }}>
+                <p className="text-2xl md:text-3xl font-medium leading-tight">
                   {point}
                 </p>
               </div>
             ))}
           </div>
 
-          <div style={{ marginTop: '6rem', opacity: 0.5, fontSize: '0.9rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-            Tudo o que fazemos deriva destes princípios.
+          <div className="mt-32 pt-12 border-t border-white/10 opacity-50 font-mono text-sm tracking-widest uppercase">
+            {principles.footer}
           </div>
         </div>
-      </section >
-    </div >
+      </section>
+    </div>
   );
 }

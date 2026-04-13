@@ -7,28 +7,31 @@ export default async function InsightsPage({ params }: { params: Promise<{ lang:
     const { insights } = dict;
 
     return (
-        <div className="animate-in">
-            <section style={{ minHeight: '80vh' }}>
-                <div className="container">
-                    <span className="section-label">{insights.title}</span>
-                    <h1 style={{ marginBottom: '4rem' }}>{insights.body}</h1>
+        <div className="pb-32">
+            <section className="min-h-[80vh] pt-20">
+                <div className="container mx-auto px-6 md:px-12">
+                    <div className="flex items-center gap-4 mb-12 font-mono text-xs text-cyan tracking-widest uppercase">
+                        <span className="w-2 h-2 bg-cyan shadow-[0_0_10px_var(--accent-cyan)] block" />
+                        {insights.title}
+                    </div>
+                    <h1 className="text-4xl md:text-6xl font-bold tracking-tighter uppercase mb-16">{insights.body}</h1>
 
-                    <div style={{ display: 'grid', gap: '2rem' }}>
-                        <Link href={`/${lang}/insights/principles`} className="glass" style={{ padding: '3rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', transition: 'var(--transition-smooth)' }}>
+                    <div className="grid gap-8 max-w-4xl">
+                        <Link href={`/${lang}/insights/principles`} className="glass-panel p-8 md:p-12 flex flex-col md:flex-row justify-between md:items-center gap-6 hover:bg-white/10 transition-all duration-500 rounded-2xl group">
                             <div>
-                                <h3 style={{ marginBottom: '0.5rem' }}>{insights.list[0]}</h3>
-                                <p style={{ color: 'var(--text-dim)' }}>Core constraints that derive our work.</p>
+                                <h3 className="text-2xl md:text-3xl font-bold mb-2 group-hover:text-cyan transition-colors">{insights.list[0]}</h3>
+                                <p className="text-lg text-text-dim">Core constraints that derive our work.</p>
                             </div>
-                            <span style={{ fontSize: '2rem', color: 'var(--accent-cyan)' }}>→</span>
+                            <span className="text-4xl text-cyan transform group-hover:translate-x-2 transition-transform duration-300">→</span>
                         </Link>
 
                         {insights.list.slice(1).map((item: string, i: number) => (
-                            <div key={i} className="glass" style={{ padding: '3rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', opacity: 0.5, cursor: 'not-allowed' }}>
+                            <div key={i} className="glass-panel p-8 md:p-12 flex flex-col md:flex-row justify-between md:items-center gap-6 opacity-40 cursor-not-allowed rounded-2xl">
                                 <div>
-                                    <h3 style={{ marginBottom: '0.5rem' }}>{item}</h3>
-                                    <p style={{ color: 'var(--text-dim)' }}>Coming soon.</p>
+                                    <h3 className="text-2xl md:text-3xl font-bold mb-2">{item}</h3>
+                                    <p className="text-lg text-text-dim">Coming soon.</p>
                                 </div>
-                                <span style={{ fontSize: '1.2rem', color: 'var(--text-dim)' }}>[Locked]</span>
+                                <span className="font-mono text-text-dim tracking-widest uppercase">[Locked]</span>
                             </div>
                         ))}
                     </div>

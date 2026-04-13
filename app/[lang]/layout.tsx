@@ -8,8 +8,38 @@ import Link from "next/link";
 import Logo from "@/components/ui/Logo";
 
 export const metadata: Metadata = {
-  title: "adFutura | Intelligence for the AI Age",
+  metadataBase: new URL('https://adfutura-website.vercel.app'),
+  title: {
+    default: "adFutura | Intelligence for the AI Age",
+    template: "%s | adFutura"
+  },
   description: "adFutura is a strategic intelligence firm. Translating advanced analytics and AI into direction, systems, and sustained advantage.",
+  keywords: ["AI Consulting", "Strategic Intelligence", "Enterprise AI", "Digital Transformation", "Advisory", "adFutura"],
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    alternateLocale: "pt_PT",
+    url: "https://adfutura-website.vercel.app",
+    title: "adFutura | Intelligence for the AI Age",
+    description: "Translating advanced analytics and AI into direction, systems, and sustained advantage.",
+    siteName: "adFutura",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "adFutura | Intelligence for the AI Age",
+    description: "Translating advanced analytics and AI into direction, systems, and sustained advantage.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default async function RootLayout({

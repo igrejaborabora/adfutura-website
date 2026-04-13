@@ -1,0 +1,24 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M12 32 L22 15 M22 15 L42 15 M42 15 L52 32 M52 32 L42 49 M42 49 L22 49 M22 49 L12 32 Z" stroke="url(#paint0_linear)" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M22 15 L32 32 L42 49 M12 32 L52 32 M32 32 L42 15" stroke="rgba(0, 200, 255, 0.4)" stroke-width="1" stroke-dasharray="3 3"/>
+  <circle cx="12" cy="32" r="3" fill="#00C8FF" />
+  <circle cx="22" cy="15" r="3" fill="#1E6FD9" />
+  <circle cx="42" cy="15" r="3" fill="#00C8FF" />
+  <circle cx="52" cy="32" r="3" fill="#1E6FD9" />
+  <circle cx="42" cy="49" r="3" fill="#00C8FF" />
+  <circle cx="22" cy="49" r="3" fill="#1E6FD9" />
+  <circle cx="32" cy="32" r="4.5" fill="#FFFFFF" filter="url(#glow)"/>
+  <defs>
+    <linearGradient id="paint0_linear" x1="12" y1="32" x2="52" y2="32" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#00C8FF" />
+      <stop offset="1" stop-color="#1E6FD9" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+</svg>

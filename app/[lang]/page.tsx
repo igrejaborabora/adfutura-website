@@ -146,21 +146,40 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
         </div>
       </section>
 
-      {/* Services Preview */}
-      <section className="py-32">
-        <div className="container mx-auto px-6 md:px-12">
+      {/* Services Preview - High-End Glass Cards */}
+      <section className="py-32 relative overflow-hidden">
+        {/* Glow de ambiente */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[500px] bg-blue/5 blur-[120px] mix-blend-screen z-[-1]" />
+        
+        <div className="container mx-auto px-6 md:px-12 relative z-10">
           <div className="flex items-center gap-4 mb-12 font-mono text-xs text-cyan tracking-widest uppercase">
             <span className="w-2 h-2 bg-cyan shadow-[0_0_10px_var(--accent-cyan)] block" />
             ARCHITECTURES
           </div>
           <h2 className="text-4xl md:text-6xl font-bold tracking-tighter uppercase mb-16">{home.services_preview.title}</h2>
+          
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {home.services_preview.list.map((service: string, i: number) => (
-              <div key={i} className="glass-panel p-12 hover:bg-white/10 transition-colors duration-300">
-                <h3 className="text-3xl font-bold uppercase tracking-tight">{service}</h3>
+              <div key={i} className="group relative p-[1px] rounded-2xl overflow-hidden cursor-pointer">
+                {/* 1. Animated Glow Border */}
+                <div className="absolute inset-[-100%] bg-[conic-gradient(from_0deg,transparent_0_300deg,rgba(0,200,255,0.8)_360deg)] animate-[spin_4s_linear_infinite] group-hover:bg-[conic-gradient(from_0deg,transparent_0_200deg,rgba(30,111,217,1)_360deg)] transition-all duration-500" />
+                
+                {/* 2. Inner Card */}
+                <div className="relative h-full bg-[#050B16] rounded-2xl p-12 overflow-hidden flex flex-col justify-end min-h-[300px] z-10 shadow-[inset_0_0_40px_rgba(255,255,255,0.02)]">
+                  
+                  {/* WebGL-like internal mesh gradient */}
+                  <div className={`absolute -bottom-[50%] -right-[50%] w-[150%] h-[150%] rounded-full blur-[80px] opacity-20 group-hover:opacity-50 transition-opacity duration-700 ${i % 2 === 0 ? 'bg-[#00C8FF]' : 'bg-[#1E6FD9]'}`} />
+                  
+                  {/* Subtle noise */}
+                  <div className="absolute inset-0 opacity-[0.04] mix-blend-overlay bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMjAwIj48ZmlsdGVyIGlkPSJuIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iMC42NSIgbnVtT2N0YXZlcz0iMyIgc3RpdGNoVGlsZXM9InN0aXRjaCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNuKSIvPjwvc3ZnPg==')]" />
+                  
+                  <span className="font-mono text-cyan text-xs tracking-widest uppercase mb-4 relative z-20">0{i + 1} //</span>
+                  <h3 className="text-4xl font-bold uppercase tracking-tight relative z-20 group-hover:translate-x-2 transition-transform duration-500">{service}</h3>
+                </div>
               </div>
             ))}
           </div>
+          
           <div className="mt-16 text-center">
             <p className="text-2xl mb-8">{home.services_preview.output}</p>
             <MagneticButton href={`/${lang}/services`} className="px-10 py-4 font-mono text-sm uppercase tracking-widest bg-transparent text-text-dim border border-white/10 hover:border-cyan hover:text-cyan hover:bg-cyan/10 transition-all duration-300 inline-flex items-center justify-center">

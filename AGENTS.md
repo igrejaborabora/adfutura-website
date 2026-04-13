@@ -11,11 +11,13 @@
 |---|---|
 | Framework | Next.js 16.1.0 (App Router, Turbopack) |
 | Language | TypeScript |
-| Styling | CSS puro (`globals.css`) + inline styles |
+| Styling | Tailwind CSS v3.4.17 + `globals.css` (utilities layer) |
+| Design | Glassmorphism (backdrop-blur, translucent panels, dynamic orbs) |
 | Animations | Framer Motion + Lenis (smooth scroll) |
 | i18n | Dicionários JSON manuais (`dictionaries/en.json`, `dictionaries/pt.json`) |
 | Deploy | Vercel (projeto `adfutura-website`, team `team_nQ4T8fC2QzGkUZxSoI4x00bc`) |
 | Repo | `igrejaborabora/adfutura-website` (branch `master`) |
+| URL | https://adfutura-website.vercel.app |
 
 ---
 
@@ -24,143 +26,138 @@
 ```
 app/
   [lang]/
-    layout.tsx          # Navbar + Footer + SmoothScroll wrapper
-    page.tsx            # Homepage (189 linhas, tudo inline styles)
-    services/page.tsx   # Página de serviços
-    work/page.tsx       # Placeholder — sem conteúdo real
-    insights/page.tsx   # Só 1 link ativo (principles), resto "coming soon"
-    insights/principles/page.tsx
-    contact/page.tsx    # Formulário sem backend
-  globals.css           # CSS base + variáveis
+    layout.tsx              # Navbar (glass-nav) + Footer (glass-panel) + SmoothScroll + DynamicBackground
+    page.tsx                # Homepage — Tailwind, PageTransition, glassmorphism sections
+    services/page.tsx       # Serviços — Advisory, Platforms, Innovation, Transformation
+    work/page.tsx           # Work — "Under NDA" placeholders estilizados
+    insights/page.tsx       # Insights — 1 link ativo (Principles), resto "Locked"
+    insights/principles/page.tsx  # Princípios — bilingue via dicionário
+    contact/page.tsx        # Contacto — client component com form funcional (simulado)
+  globals.css               # Tailwind directives + CSS variables + glass utilities
 components/
   ui/
-    TextReveal.tsx      # Animação de palavras com Framer Motion
-    MagneticButton.tsx  # Botão magnético com Framer Motion
+    TextReveal.tsx          # Animação de palavras com Framer Motion
+    MagneticButton.tsx      # Botão magnético com Framer Motion
+    DynamicBackground.tsx   # Fundo dinâmico com orbs blur (glassmorphism)
+    PageTransition.tsx      # Wrapper Framer Motion para animação de entrada de página
   providers/
-    SmoothScroll.tsx    # Wrapper Lenis
+    SmoothScroll.tsx        # Wrapper Lenis (opções deprecadas removidas)
 dictionaries/
-  en.json               # Conteúdo EN (227 linhas)
-  pt.json               # Conteúdo PT (227 linhas)
+  en.json                   # Conteúdo EN (~228 linhas)
+  pt.json                   # Conteúdo PT (~228 linhas)
 lib/
-  dictionary.ts         # getDictionary() — server-only
-middleware.ts           # Redirect / → /en (deprecated: usa "middleware" em vez de "proxy")
+  dictionary.ts             # getDictionary() — server-only
+proxy.ts                    # Redirect / → /en (substitui middleware.ts deprecated)
+tailwind.config.ts          # Configuração Tailwind com cores brand e glass utilities
+postcss.config.js           # PostCSS com Tailwind + Autoprefixer
+AGENTS.md                   # Este ficheiro
 ```
 
 ---
 
-## Problemas Identificados (por prioridade)
+## Estado Atual — Redesign Glassmorphism (Abril 2026)
 
-### 🔴 CRÍTICO — Quebra visual
+### ✅ CONCLUÍDO
 
-#### 1. CSS Classes em falta
-As seguintes classes são usadas no código mas **não existem em `globals.css`**:
-- `.animate-in` — usada em todas as pages como wrapper
-- `.hero` — usada em `page.tsx` para a secção hero
-- `.nav-content` — usada em `layout.tsx`
-- `.nav-links` — usada em `layout.tsx`
-- `.nav-link` — usada em `layout.tsx`
-- `.lang-switcher` — usada em `layout.tsx`
+#### Fase 1 — Correções Críticas
+- [x] CSS classes em falta → substituídas por Tailwind classes
+- [x] Hero padding-top → `main` tem `pt-[90px]` para compensar navbar fixa
+- [x] Texto hardcoded PT na página Principles → usa `principles.footer` do dicionário
+- [x] Lista duplicada Advisory → corrigida para exibir `points` uma única vez
+- [x] Middleware deprecado → renomeado para `proxy.ts` com export `proxy`
+- [x] Lenis opções deprecadas → `orientation` e `gestureOrientation` removidas
+- [x] `--accent-cyan` em falta → adicionada ao `globals.css`
 
-Resultado: navbar sem layout, hero sem padding-top correto, sem animação de entrada.
+#### Fase 2 — Redesign Completo
+- [x] **Homepage** — secções com hierarquia visual, glass-panel, TextReveal, MagneticButton
+- [x] **Services** — layout por serviço com glass-panel, sem duplicação
+- [x] **Work** — placeholders "Under NDA" estilizados com glass-panel
+- [x] **Insights** — link ativo para Principles, resto "Locked"
+- [x] **Principles** — totalmente bilingue
+- [x] **Contact** — form client-side com estado, validação e feedback visual
+- [x] **Layout** — navbar glass-nav responsiva, footer glass-panel com grid
+- [x] **DynamicBackground** — orbs com blur e mix-blend-screen
+- [x] **PageTransition** — fade-in/slide-up com Framer Motion
 
-#### 2. Hero sem espaço para a navbar
-A navbar é `position: fixed` com `height: var(--nav-height) = 90px`.
-A secção hero não tem `padding-top` para compensar — o conteúdo fica por baixo da navbar.
-
-#### 3. Sem design responsivo
-Todos os grids são `gridTemplateColumns: '1fr 1fr'` sem breakpoints.
-Em mobile, o layout quebra completamente.
+#### Migração Técnica
+- [x] Inline styles → Tailwind CSS classes
+- [x] Responsive design → breakpoints Tailwind (`sm:`, `md:`, `lg:`)
+- [x] `package.json` → `"type": "module"` adicionado
+- [x] PostCSS configurado com Tailwind + Autoprefixer
 
 ---
 
-### 🟠 GRAVE — Conteúdo / Funcionalidade
+## Problemas Pendentes
 
-#### 4. Página Work — placeholder total
-`work/page.tsx` renderiza um array `[1, 2, 3]` com "FLAGSHIP EXAMPLE" hardcoded.
-Não há casos de estudo reais nem estrutura para os adicionar.
+### 🟠 GRAVE
 
-#### 5. Advisory — lista duplicada na services page
-A secção Advisory em `services/page.tsx` renderiza `services.advisory.points` **duas vezes** — na coluna esquerda (lista dimida) e na coluna direita (lista destacada). Eram supostas ser listas diferentes.
+#### 1. Formulário de contacto sem backend real
+O form em `contact/page.tsx` simula submissão (setTimeout + console.log).
+Precisa de backend real: Resend, Formspree, ou API route Next.js.
 
-#### 6. Formulário de contacto sem backend
-`contact/page.tsx` tem um `<form>` sem `action`, sem `onSubmit`, sem API route.
-Submeter não faz nada.
+#### 2. `public/` sem assets da marca
+Só tem os SVGs default do Next.js. Não há logótipo, favicon real, nem imagens.
 
-#### 7. Texto hardcoded não bilingue
-`insights/principles/page.tsx` linha 29:
-```tsx
-Tudo o que fazemos deriva destes princípios.
+#### 3. Página Work sem conteúdo real
+Os case studies são placeholders "Under NDA". Precisam de conteúdo real ou estrutura CMS.
+
+#### 4. Nav sem mobile menu (hamburger)
+A navbar esconde links em `hidden md:flex`. Em mobile não há menu alternativo.
+
+### 🟡 MÉDIO
+
+#### 5. `getDictionary` sem validação de locale
+Se `lang` não for `'en'` | `'pt'`, a função faz crash. O proxy protege, mas não há fallback.
+
+#### 6. Sem favicon real
+`app/favicon.ico` é o default do Next.js.
+
+#### 7. Sem OG image / meta tags dinâmicas
+O metadata em `layout.tsx` é estático. Falta OG image e meta tags por página.
+
+---
+
+## Tailwind — Cores e Utilities
+
+### Cores (definidas em `tailwind.config.ts`)
 ```
-Está em PT independentemente da língua selecionada.
+midnight:    #0A1428     (fundo base do DynamicBackground)
+blue:        #1E6FD9     (accent principal)
+deep-navy:   #12203A     (orb terciário)
+ice:         #E1EDFB     (highlight claro)
+cyan:        #00C8FF     (accent secundário, CTAs, labels)
+text-dim:    var(--text-dim) = #888888
+```
 
-#### 8. `public/` sem assets da marca
-Só tem os SVGs default do Next.js (`file.svg`, `globe.svg`, `next.svg`, `vercel.svg`, `window.svg`).
-Não há logótipo, favicon real, nem imagens.
-
----
-
-### 🟡 MÉDIO — Qualidade / Manutenibilidade
-
-#### 9. Tudo em inline styles
-Nenhum componente usa classes CSS ou módulos CSS.
-Todo o layout está em `style={{}}` props — difícil de manter, impossível de fazer responsive.
-
-#### 10. Middleware deprecado
-`middleware.ts` usa a convenção antiga — Next.js 16 pede `proxy.ts`.
-Gera warning no build.
-
-#### 11. Lenis com opções deprecadas
-`SmoothScroll.tsx` usa `orientation` e `gestureOrientation` que foram removidas em versões recentes do Lenis.
-
-#### 12. `getDictionary` sem validação de locale
-Se `lang` não for `'en'` | `'pt'`, a função faz crash.
-O middleware protege, mas não há fallback explícito.
-
-#### 13. Sem favicon real
-`app/favicon.ico` existe mas é o default do Next.js.
-
----
-
-## CSS Variables Disponíveis
-
+### CSS Variables (definidas em `globals.css`)
 ```css
---bg-color: #000000
+--bg-color: #050505
 --text-color: #ffffff
 --text-dim: #888888
---accent-blue: #0066FF
---accent-blue-dim: rgba(0, 102, 255, 0.1)
---accent-cyan: #00C8FF
---glass-bg: rgba(255, 255, 255, 0.05)
---glass-border: rgba(255, 255, 255, 0.1)
 --font-main: 'Inter', sans-serif
 --font-mono: 'JetBrains Mono', monospace
 --nav-height: 90px
---transition-smooth: all 0.6s cubic-bezier(0.16, 1, 0.3, 1)
 ```
+
+### Utilities personalizadas
+- `.glass-panel` → `bg-white/5 backdrop-blur-xl border border-white/10 shadow-glass`
+- `.glass-nav` → `bg-black/50 backdrop-blur-2xl border-b border-white/5`
 
 ---
 
-## Plano de Trabalho
+## Plano de Trabalho — Próximos Passos
 
-### Fase 1 — Corrigir o que está partido
-- [ ] Adicionar CSS classes em falta (`.animate-in`, `.hero`, `.nav-content`, `.nav-links`, `.nav-link`, `.lang-switcher`)
-- [ ] Corrigir padding-top do hero (compensar navbar)
-- [ ] Fixar texto hardcoded em PT na página Principles
-- [ ] Corrigir lista duplicada no Advisory (services page)
+### Fase 3 — Funcionalidade
+- [ ] **Contact backend** — integrar Resend ou API route para envio real de emails
+- [ ] **Mobile nav** — hamburger menu com animação
+- [ ] **Work page** — CMS ou estrutura para case studies reais
 
-### Fase 2 — Redesign das páginas
-- [ ] **Homepage** — reestruturar com hierarquia visual clara, secções com padding consistente
-- [ ] **Services** — layout limpo por serviço, sem duplicação de dados
-- [ ] **Work** — estrutura para casos reais ou "em breve" bem apresentado
-- [ ] **Contact** — integrar backend (Resend, Formspree ou API route Next.js)
-- [ ] **Nav** — mobile menu (hamburger)
-
-### Fase 3 — Qualidade
-- [ ] Responsive design (breakpoints em CSS, não inline)
-- [ ] Mover inline styles para classes CSS ou CSS Modules
-- [ ] Substituir `middleware.ts` por `proxy.ts`
-- [ ] Corrigir opções do Lenis
-- [ ] Adicionar assets reais (logo, favicon, OG image)
+### Fase 4 — Polish
+- [ ] Assets reais (logo SVG, favicon, OG image)
+- [ ] Meta tags dinâmicas por página (SEO)
+- [ ] Validação de locale com fallback em `getDictionary`
+- [ ] Performance audit (Lighthouse)
+- [ ] Animações de scroll (intersection observer ou Framer Motion scroll triggers)
 
 ---
 
@@ -171,17 +168,31 @@ O middleware protege, mas não há fallback explícito.
 - **Commits semânticos**: `feat:`, `fix:`, `refactor:`, `style:`, `ci:`
 - **Branch**: tudo vai para `master` → deploy automático no Vercel
 - Qualquer nova chave de dicionário deve ser adicionada **em ambos** `en.json` e `pt.json`
+- **Styling**: usar Tailwind classes, nunca inline styles
+- **Componentes reutilizáveis**: glass-panel, glass-nav como utilities no CSS
 
 ---
 
-## Comandos Úteis
+## Deploy e Git
+
+### MCP GitHub (Windsurf)
+- **Leitura**: funcional (conta `igrejaborabora`)
+- **Escrita**: bloqueada (token sem permissão `contents:write`)
+- **Workaround**: usar Git local para commit/push
+
+### Comandos Úteis
 
 ```bash
-npm run dev      # desenvolvimento local (http://localhost:3000)
-npm run build    # confirmar que o build passa antes de push
-git push origin master  # trigger deploy Vercel automático
+npm run dev          # desenvolvimento local (http://localhost:3000)
+npm run build        # confirmar que o build passa antes de push
+git add -A && git commit -m "feat: description" && git push origin master
 ```
+
+### Deploy Vercel
+- Push para `master` → deploy automático
+- Projeto: `adfutura-website`
+- URL: https://adfutura-website.vercel.app
 
 ---
 
-*Última revisão: Abril 2026*
+*Última revisão: 13 Abril 2026*

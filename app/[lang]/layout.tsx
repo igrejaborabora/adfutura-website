@@ -5,6 +5,8 @@ import SmoothScroll from "@/components/providers/SmoothScroll";
 import DynamicBackground from "@/components/ui/DynamicBackground";
 import Link from "next/link";
 
+import Logo from "@/components/ui/Logo";
+
 export const metadata: Metadata = {
   title: "adFutura | Intelligence for the AI Age",
   description: "adFutura is a strategic intelligence firm. Translating advanced analytics and AI into direction, systems, and sustained advantage.",
@@ -31,8 +33,8 @@ export default async function RootLayout({
             <div className="container mx-auto px-6 md:px-12 h-full flex items-center justify-between">
               
               {/* Logo */}
-              <Link href={`/${lang}`} className="flex items-center gap-3">
-                <img src="/logo.svg" alt="adFutura" className="h-8 md:h-10 w-auto" />
+              <Link href={`/${lang}`} className="hover:opacity-80 transition-opacity">
+                <Logo className="h-8 md:h-10 w-auto" />
               </Link>
               
               {/* Desktop Nav Links */}
@@ -65,7 +67,7 @@ export default async function RootLayout({
                 {/* Brand */}
                 <div className="lg:col-span-2">
                   <div className="mb-4">
-                    <img src="/logo.svg" alt="adFutura" className="h-8 md:h-10 w-auto" />
+                    <Logo className="h-8 md:h-10 w-auto" />
                   </div>
                   <p className="text-text-dim max-w-sm">Intelligence for the AI Age</p>
                 </div>

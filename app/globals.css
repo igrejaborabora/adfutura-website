@@ -38,7 +38,8 @@
   }
   .gradient-border-glow::before {
     content: "";
-    @apply absolute inset-0 rounded-inherit p-[1px] pointer-events-none;
+    @apply absolute inset-0 p-[1px] pointer-events-none;
+    border-radius: inherit;
     background: linear-gradient(120deg, rgba(0,200,255,0.8), transparent 40%, transparent 60%, rgba(30,111,217,0.8));
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
